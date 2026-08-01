@@ -25,6 +25,59 @@
     const max = document.documentElement.scrollHeight - innerHeight;
     if(progress) progress.style.width = `${max > 0 ? (y/max)*100 : 0}%`;
 
+    const jetReveal = $('#jetReveal');
+    if(jetReveal){
+      const rect = jetReveal.getBoundingClientRect();
+      const total = jetReveal.offsetHeight - innerHeight;
+      const pct = Math.max(0, Math.min(1, -rect.top / Math.max(total,1)));
+      const eased = 1 - Math.pow(1 - pct, 3);
+      const isMobile = innerWidth <= 760;
+      const startY = isMobile ? 46 : 56;
+      const endY = isMobile ? -2 : -8;
+      const y = startY + (endY - startY) * eased;
+      const scale = (isMobile ? .62 : .7) + eased * (isMobile ? .34 : .38);
+      const rotate = -4 + eased * 4;
+      const plane = $('.jet-reveal-plane');
+      const glow = $('.jet-reveal-glow');
+      const copy = $('.jet-reveal-copy');
+      const specs = $('.jet-reveal-specs');
+      const topWord = $('.jet-reveal-word-top');
+      const bottomWord = $('.jet-reveal-word-bottom');
+      const launchProgress = $('.jet-reveal-progress span');
+      const scrollLabel = $('.jet-reveal-scroll');
+      if(plane){
+        plane.style.transform = `translate3d(-50%,calc(-50% + ${y}vh),0) scale(${scale}) rotate(${rotate}deg)`;
+        plane.style.opacity = String(Math.min(1, pct * 4));
+      }
+      if(glow){
+        glow.style.opacity = String(.18 + eased * .82);
+        glow.style.transform = `translate(-50%,-50%) scale(${.8 + eased * .32})`;
+      }
+      if(topWord){
+        topWord.style.transform = `translate3d(-50%,${pct * -8}vh,0)`;
+        topWord.style.opacity = String(.45 + pct * .55);
+      }
+      if(bottomWord){
+        bottomWord.style.transform = `translate3d(-50%,${pct * 10}vh,0)`;
+        bottomWord.style.opacity = String(.35 + pct * .65);
+      }
+      const copyIn = Math.max(0, Math.min(1, (pct - .06) / .22));
+      const copyOut = 1 - Math.max(0, Math.min(1, (pct - .67) / .18));
+      if(copy){
+        copy.style.opacity = String(copyIn * copyOut);
+        copy.style.transform = `translateY(${(1-copyIn)*30 - pct*12}px)`;
+      }
+      const specsIn = Math.max(0, Math.min(1, (pct - .5) / .22));
+      if(specs){
+        specs.style.opacity = String(specsIn);
+        specs.style.transform = innerWidth <= 1050
+          ? `translateY(${(1-specsIn)*28}px)`
+          : `translateY(calc(-50% + ${(1-specsIn)*28}px))`;
+      }
+      if(launchProgress) launchProgress.style.width = `${pct * 100}%`;
+      if(scrollLabel) scrollLabel.style.opacity = String(1 - Math.min(1,pct*4));
+    }
+
     const story = $('.flight-story');
     if(story){
       const rect = story.getBoundingClientRect();

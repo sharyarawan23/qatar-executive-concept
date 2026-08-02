@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
-  <link rel="preload" href="assets/cloudscape.webp" as="image" />
+  <link rel="preload" href="assets/sky-above-the-clouds.png" as="image" />
   <link rel="preload" href="assets/g700-top-view.webp" as="image" />
   <link rel="preload" href="assets/qe-logo.png" as="image" />
   <link rel="icon" href="assets/qe-logo.webp" type="image/webp" />
@@ -31,7 +31,10 @@
   <header class="site-header" id="siteHeader">
     <a href="#top" class="brand" aria-label="Qatar Executive home"><img src="assets/qe-logo.png" alt="Qatar Executive" /></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#about">About</a><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a>
+      <a href="#about">About</a>
+      <a href="#aircraft">G700</a>
+      <a href="#experience">Experience</a>
+      <a href="#reach">Global reach</a>
     </nav>
     <div class="header-actions">
       <button class="language" type="button">EN <span>/</span> ع</button>
@@ -41,46 +44,61 @@
   </header>
 
   <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <nav><a href="#about">About</a><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a></nav>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#aircraft">G700</a>
+      <a href="#experience">Experience</a>
+      <a href="#reach">Global reach</a>
+    </nav>
     <button class="solid-button js-book" type="button">Plan your flight <span>↗</span></button>
     <small>Unofficial redesign concept</small>
   </aside>
 
   <main id="top">
-    <!-- ROUND WINDOW / MOVING CLOUDS / CAMERA PUSH-IN -->
     <section class="window-journey" id="hero" aria-label="Cinematic aircraft window introduction">
       <div class="window-pin">
         <div class="hero-backdrop"><span></span><span></span></div>
+        <div class="hero-sky-fill" id="heroSkyFill">
+          <div class="cloud-layer cloud-layer-a"></div>
+          <div class="cloud-layer cloud-layer-b"></div>
+          <div class="cloud-layer cloud-layer-c"></div>
+        </div>
+
         <div class="hero-copy hero-copy-left">
           <p>PRIVATE AVIATION<br>BY QATAR AIRWAYS GROUP</p>
           <h1>We are<br><em>movement.</em></h1>
         </div>
+
         <div class="window-object" id="windowObject">
           <div class="window-halo"></div>
           <div class="window-shell">
             <div class="window-shade" id="windowShade"><i></i></div>
             <div class="window-rim">
-              <div class="window-glass">
-                <div class="cloud-video" id="cloudVideo">
-                  <div class="cloud-layer cloud-layer-a"></div>
-                  <div class="cloud-layer cloud-layer-b"></div>
-                  <div class="cloud-light"></div>
+              <div class="window-rim-inner">
+                <div class="window-glass">
+                  <div class="cloud-video" id="cloudVideo">
+                    <div class="cloud-layer cloud-layer-a"></div>
+                    <div class="cloud-layer cloud-layer-b"></div>
+                    <div class="cloud-layer cloud-layer-c"></div>
+                    <div class="cloud-light"></div>
+                  </div>
+                  <img class="window-logo" id="windowLogo" src="assets/qe-logo.png" alt="Qatar Executive" />
                 </div>
-                <img class="window-logo" id="windowLogo" src="assets/qe-logo.png" alt="Qatar Executive" />
               </div>
             </div>
           </div>
         </div>
+
         <div class="hero-copy hero-copy-right">
           <h2>We are<br><em>distinction.</em></h2>
           <p>Privacy, precision and Qatari hospitality — shaped around the way you move.</p>
         </div>
+
         <div class="scroll-cue"><i></i><span>SCROLL TO ENTER</span></div>
       </div>
     </section>
 
-    <!-- SHORT SOPHISTICATED ABOUT -->
-    <section class="about-section section-ivory" id="about">
+    <section class="about-section" id="about">
       <div class="shell about-grid">
         <div class="section-label reveal">01 / QATAR EXECUTIVE</div>
         <div class="about-copy">
@@ -93,11 +111,10 @@
       </div>
     </section>
 
-    <!-- BIG TEXT FIRST, THEN JET REVEAL -->
     <section class="manifest-jet" id="aircraft" aria-label="Gulfstream G700 reveal">
       <div class="manifest-pin">
-        <div class="manifest-bg"><span></span><span></span></div>
         <div class="manifest-kicker">02 / THE FLAGSHIP</div>
+
         <div class="manifest-statement" id="manifestStatement">
           <p class="manifest-line">Your time is the</p>
           <p class="manifest-line">rarest luxury.</p>
@@ -105,8 +122,9 @@
           <p class="manifest-line manifest-line-muted">to protect it.</p>
         </div>
 
-        <div class="jet-word jet-word-left" aria-hidden="true">Fly in</div>
-        <div class="jet-word jet-word-right" aria-hidden="true">Luxury</div>
+        <div class="jet-word jet-word-left" aria-hidden="true">Fly</div>
+        <div class="jet-word jet-word-right" aria-hidden="true">Premium</div>
+
         <img class="hero-jet" id="heroJet" src="assets/g700-top-view.webp" alt="Top view of a Gulfstream G700" />
 
         <div class="jet-side-copy jet-side-left" id="jetSideLeft">
@@ -119,17 +137,24 @@
           <div><small>MAXIMUM SPEED</small><strong>MACH 0.93</strong></div>
           <div><small>PASSENGER LOAD</small><strong>13</strong></div>
         </div>
+
         <div class="manifest-progress"><span></span></div>
       </div>
     </section>
 
-    <!-- AIRCRAFT DETAILS / FLOOR PLAN CROSSFADE -->
-    <section class="aircraft-detail section-stone" id="g700Detail">
+    <section class="aircraft-detail" id="g700Detail">
       <div class="detail-shell shell">
         <div class="detail-header reveal">
-          <div><span>03 / GULFSTREAM</span><h2>G700</h2></div>
-          <div><span>ULTRA-LONG-RANGE AIRCRAFT</span><p>For those who seek nothing less than extraordinary in luxury travel.</p></div>
+          <div>
+            <span>03 / AIRCRAFT DETAILS</span>
+            <h2>G700</h2>
+          </div>
+          <div>
+            <span>ULTRA-LONG-RANGE AIRCRAFT</span>
+            <p>When the flagship has completed its reveal, the experience transitions into a clear overview of range, speed and onboard living zones.</p>
+          </div>
         </div>
+
         <div class="detail-layout">
           <div class="detail-specs reveal">
             <div><small>Maximum range</small><strong>7,750 nm</strong></div>
@@ -137,13 +162,16 @@
             <div><small>Maximum mach</small><strong>0.93</strong></div>
             <div><small>Passenger load</small><strong>13</strong></div>
           </div>
+
           <div class="floorplan-wrap reveal" id="floorplanWrap">
-            <div class="floorplan-aircraft">
-              <img src="assets/g700-top-view.webp" alt="G700 exterior top view" />
-            </div>
-            <div class="floorplan-map" aria-label="Illustrative G700 cabin layout">
+            <div class="floorplan-map is-active" aria-label="Illustrative G700 cabin layout">
               <svg viewBox="0 0 280 960" role="img" aria-label="Illustrative cabin floor plan">
-                <defs><linearGradient id="cabinFill" x1="0" x2="1"><stop stop-color="#faf6ee"/><stop offset="1" stop-color="#e9e0d3"/></linearGradient></defs>
+                <defs>
+                  <linearGradient id="cabinFill" x1="0" x2="1">
+                    <stop stop-color="#faf6ee"/>
+                    <stop offset="1" stop-color="#e9e0d3"/>
+                  </linearGradient>
+                </defs>
                 <path d="M140 12 C183 45 198 82 198 132 L198 842 C198 902 180 936 140 950 C100 936 82 902 82 842 L82 132 C82 82 97 45 140 12Z" fill="url(#cabinFill)" stroke="#887d73" stroke-width="2"/>
                 <path d="M104 170h72v84h-72zM104 272h72v82h-72zM104 372h72v114h-72zM104 506h72v126h-72zM104 652h72v112h-72zM104 784h72v74h-72z" fill="none" stroke="#a89a8c"/>
                 <g fill="#d2c2b1" stroke="#8e8175">
@@ -156,47 +184,67 @@
                 </g>
                 <path d="M140 145v704" stroke="#b9aa9b" stroke-dasharray="5 7"/>
               </svg>
-              <div class="floorplan-labels"><span>01 / Club suite</span><span>02 / Dining</span><span>03 / Private suite</span><span>04 / Grand suite</span></div>
+              <div class="floorplan-labels">
+                <span>01 / Club suite</span>
+                <span>02 / Dining</span>
+                <span>03 / Private suite</span>
+                <span>04 / Grand suite</span>
+              </div>
             </div>
           </div>
+
           <div class="detail-copy reveal">
             <span>PRIVATE, EXCLUSIVE, BESPOKE</span>
             <p>The industry’s largest business-jet cabin is arranged into distinct living zones for work, dining, rest and complete privacy.</p>
-            <button class="text-link" type="button" data-floorplan>Explore cabin layout <span>↔</span></button>
+            <button class="text-link" type="button" data-floorplan>Highlight living zones <span>↔</span></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PREMIUM EXPERIENCE / PETS -->
-    <section class="experience section-ivory" id="experience">
-      <div class="shell experience-head reveal"><span>04 / THE EXECUTIVE EXPERIENCE</span><h2>A better way<br><em>to fly.</em></h2></div>
+    <section class="experience" id="experience">
+      <div class="shell experience-head reveal">
+        <span>04 / THE EXECUTIVE EXPERIENCE</span>
+        <h2>A better way<br><em>to fly.</em></h2>
+      </div>
+
       <div class="experience-feature shell">
         <div class="experience-accordion reveal">
-          <article class="experience-item is-open" data-experience="pets"><button type="button"><span>Flying with pets</span><i>−</i></button><div><p>Your companion remains close, calm and cared for throughout the journey. Our team helps coordinate the finer details before departure.</p></div></article>
-          <article class="experience-item" data-experience="crew"><button type="button"><span>Dedicated cabin crew</span><i>+</i></button><div><p>Experienced crew deliver warm, attentive service while maintaining rigorous safety and security standards.</p></div></article>
-          <article class="experience-item" data-experience="wifi"><button type="button"><span>High-speed connectivity</span><i>+</i></button><div><p>Starlink-powered connectivity on equipped aircraft keeps work, streaming and communication moving without compromise.</p></div></article>
-          <article class="experience-item" data-experience="dining"><button type="button"><span>Bespoke dining</span><i>+</i></button><div><p>Menus, refreshments and special occasions are tailored around your preferences and prepared with exceptional care.</p></div></article>
+          <article class="experience-item is-open" data-experience="pets">
+            <button type="button"><span>Flying with pets</span><i>−</i></button>
+            <div><p>Your companion remains close, calm and cared for throughout the journey. Our team helps coordinate the finer details before departure.</p></div>
+          </article>
+          <article class="experience-item" data-experience="crew">
+            <button type="button"><span>Dedicated cabin crew</span><i>+</i></button>
+            <div><p>Experienced crew deliver warm, attentive service while maintaining rigorous safety and security standards.</p></div>
+          </article>
+          <article class="experience-item" data-experience="wifi">
+            <button type="button"><span>High-speed connectivity</span><i>+</i></button>
+            <div><p>Starlink-powered connectivity on equipped aircraft keeps work, streaming and communication moving without compromise.</p></div>
+          </article>
+          <article class="experience-item" data-experience="dining">
+            <button type="button"><span>Bespoke dining</span><i>+</i></button>
+            <div><p>Menus, refreshments and special occasions are tailored around your preferences and prepared with exceptional care.</p></div>
+          </article>
         </div>
+
         <div class="experience-media reveal">
-          <img id="experienceImage" src="https://static.wixstatic.com/media/d37a82_0b0e19363a8b488bacc28ae8bb8a14ec~mv2.png/v1/fill/w_980,h_550,al_c,q_90/d37a82_0b0e19363a8b488bacc28ae8bb8a14ec~mv2.png" onerror="this.onerror=null;this.src='assets/g700-interior-2-hd.webp'" alt="Pet-friendly private jet experience" />
+          <img id="experienceImage" src="assets/pets-premium.png" alt="Pet-friendly private jet experience" />
           <div class="experience-caption"><span id="experienceIndex">01</span><p id="experienceCaption">Your companions, welcomed onboard.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- CURATED PREMIUM VISUALS -->
-    <section class="editorial-gallery section-dark">
+    <section class="editorial-gallery">
       <div class="shell gallery-head reveal"><span>THE FINER DETAILS</span><h2>Made personal.<br><em>Delivered precisely.</em></h2></div>
       <div class="gallery-grid shell">
-        <figure class="gallery-card gallery-card-wide reveal"><img src="assets/g700-dining-hd.webp" alt="Bespoke dining onboard" /><figcaption><span>01</span><h3>Dining, at your request</h3></figcaption></figure>
-        <figure class="gallery-card reveal"><img src="assets/g700-interior-1-hd.webp" alt="Private jet cabin" /><figcaption><span>02</span><h3>Space to arrive ready</h3></figcaption></figure>
+        <figure class="gallery-card gallery-card-wide reveal"><img src="assets/dining-premium.png" alt="Bespoke dining onboard" /><figcaption><span>01</span><h3>Dining, at your request</h3></figcaption></figure>
+        <figure class="gallery-card reveal"><img src="assets/crew-premium.png" alt="Dedicated private cabin crew" /><figcaption><span>02</span><h3>Attentive service</h3></figcaption></figure>
         <figure class="gallery-card reveal"><img src="assets/g700-exterior-hd.webp" alt="Private jet on the tarmac" /><figcaption><span>03</span><h3>A seamless departure</h3></figcaption></figure>
-        <figure class="gallery-card gallery-card-wide reveal"><img src="assets/global5000-interior-hd.webp" alt="Luxury private jet interior" /><figcaption><span>04</span><h3>Comfort without compromise</h3></figcaption></figure>
+        <figure class="gallery-card gallery-card-wide reveal"><img src="assets/starlink-premium.png" alt="High-speed connectivity in a private jet" /><figcaption><span>04</span><h3>Connected at altitude</h3></figcaption></figure>
       </div>
     </section>
 
-    <!-- GLOBAL REACH -->
     <section class="global-reach" id="reach">
       <div class="global-bg"></div>
       <div class="shell global-content">
@@ -220,7 +268,6 @@
     <div class="shell footer-grid"><img src="assets/qe-logo.png" alt="Qatar Executive" /><div><span>Contact</span><a href="tel:+97440221700">+974 4022 1700</a><a href="mailto:request@qatarexec.com.qa">request@qatarexec.com.qa</a></div><div><span>Explore</span><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a></div><div><span>Concept</span><p>Unofficial redesign created for presentation purposes. Brand assets remain the property of their respective owner.</p></div></div>
   </footer>
 
-  <!-- WORKING FLIGHT REQUEST DRAWER -->
   <div class="booking-drawer" id="bookingDrawer" aria-hidden="true">
     <button class="booking-backdrop js-close-booking" type="button" aria-label="Close booking form"></button>
     <div class="booking-panel" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">

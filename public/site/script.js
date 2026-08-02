@@ -19,77 +19,138 @@
 
   const header = $('#siteHeader');
   const progress = $('.scroll-progress span');
-  const onScroll = () => {
-    const y = window.scrollY;
-    header?.classList.toggle('is-scrolled', y > 40);
-    const max = document.documentElement.scrollHeight - innerHeight;
-    if(progress) progress.style.width = `${max > 0 ? (y/max)*100 : 0}%`;
+  const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+  const segment = (value, start, end) => clamp((value - start) / Math.max(end - start, .0001));
+  const easeOut = value => 1 - Math.pow(1 - clamp(value), 3);
+  const easeInOut = value => { const p = clamp(value); return p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3)/2; };
 
-    const jetReveal = $('#jetReveal');
-    if(jetReveal){
-      const rect = jetReveal.getBoundingClientRect();
-      const total = jetReveal.offsetHeight - innerHeight;
-      const pct = Math.max(0, Math.min(1, -rect.top / Math.max(total,1)));
-      const eased = 1 - Math.pow(1 - pct, 3);
-      const isMobile = innerWidth <= 760;
-      const startY = isMobile ? 52 : 60;
-      const endY = isMobile ? -4 : -10;
-      const y = startY + (endY - startY) * eased;
-      const scale = (isMobile ? .86 : .82) + eased * (isMobile ? .16 : .22);
-      const rotate = 0;
-      const plane = $('.jet-reveal-plane');
-      const glow = $('.jet-reveal-glow');
-      const copy = $('.jet-reveal-copy');
-      const specs = $('.jet-reveal-specs');
-      const topWord = $('.jet-reveal-word-top');
-      const bottomWord = $('.jet-reveal-word-bottom');
-      const launchProgress = $('.jet-reveal-progress span');
-      const scrollLabel = $('.jet-reveal-scroll');
-      if(plane){
-        plane.style.transform = `translate3d(-50%,calc(-50% + ${y}vh),0) scale(${scale}) rotate(${rotate}deg)`;
-        plane.style.opacity = String(Math.min(1, pct * 4));
+  const headerBrand = $('.site-header .brand');
+  const journey = $('#jetReveal');
+  const windowStage = $('.journey-window-stage');
+  const windowWrap = $('.journey-window-wrap');
+  const windowLogo = $('.journey-window-logo');
+  const windowClouds = $('.journey-clouds');
+  const introLeft = $('.journey-intro-left');
+  const introRight = $('.journey-intro-right');
+  const scrollPrompt = $('.journey-scroll-prompt');
+  const skyStage = $('.journey-sky-stage');
+  const skyA = $('.sky-depth-a');
+  const skyB = $('.sky-depth-b');
+  const jetStage = $('.journey-jet-stage');
+  const journeyJet = $('.journey-jet');
+  const jetCopyLeft = $('.journey-jet-copy-left');
+  const jetCopyRight = $('.journey-jet-copy-right');
+  const exitShade = $('.journey-exit-shade');
+  const journeyProgress = $('.journey-progress span');
+
+  const onScroll = () => {
+    const pageY = window.scrollY;
+    header?.classList.toggle('is-scrolled', pageY > 40);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if(progress) progress.style.width = `${max > 0 ? (pageY/max)*100 : 0}%`;
+
+    if(journey){
+      const rect = journey.getBoundingClientRect();
+      const total = journey.offsetHeight - innerHeight;
+      const pct = clamp(-rect.top / Math.max(total,1));
+      const mobile = innerWidth <= 760;
+
+      // Initial logo is inside the window. Header brand fades in as that logo departs.
+      const brandIn = segment(pct,.11,.22);
+      if(headerBrand){
+        headerBrand.style.opacity = String(brandIn);
+        headerBrand.style.transform = `translateY(${(1-brandIn)*-14}px)`;
       }
-      if(glow){
-        glow.style.opacity = String(.18 + eased * .82);
-        glow.style.transform = `translate(-50%,-50%) scale(${.8 + eased * .32})`;
+
+      // Scene 1 — window, open shade and logo.
+      const logoLift = easeInOut(segment(pct,.08,.23));
+      if(windowLogo){
+        windowLogo.style.opacity = String(1 - segment(pct,.15,.25));
+        windowLogo.style.transform = `translate(-50%,calc(-50% - ${logoLift*58}vh)) scale(${1-logoLift*.28})`;
       }
-      if(topWord){
-        topWord.style.transform = `translate3d(-50%,${pct * -8}vh,0)`;
-        topWord.style.opacity = String(.45 + pct * .55);
+      const introFade = 1 - segment(pct,.16,.29);
+      if(introLeft){ introLeft.style.opacity = String(introFade); introLeft.style.transform = `translateY(${-segment(pct,.12,.29)*42}px)`; }
+      if(introRight){ introRight.style.opacity = String(introFade); introRight.style.transform = `translateY(${-segment(pct,.12,.29)*34}px)`; }
+      if(scrollPrompt) scrollPrompt.style.opacity = String(1-segment(pct,.02,.12));
+
+      // Clouds become visible before the camera enters the window.
+      const cloudReveal = easeOut(segment(pct,.10,.28));
+      if(windowClouds){
+        windowClouds.style.opacity = String(.08 + cloudReveal*.92);
+        windowClouds.style.transform = `scale(${1.04 + cloudReveal*.32}) translateY(${cloudReveal*-3}%)`;
       }
-      if(bottomWord){
-        bottomWord.style.transform = `translate3d(-50%,${pct * 10}vh,0)`;
-        bottomWord.style.opacity = String(.35 + pct * .65);
+
+      // Scene 2 — camera pushes through the window.
+      const windowZoom = easeInOut(segment(pct,.22,.47));
+      if(windowWrap){
+        const zoom = 1 + windowZoom*(mobile ? 5.6 : 6.2);
+        windowWrap.style.transform = `translate(-50%,calc(-50% + ${windowZoom*-2}vh)) scale(${zoom})`;
+        windowWrap.style.opacity = String(1-segment(pct,.42,.51));
       }
-      const copyIn = Math.max(0, Math.min(1, (pct - .06) / .22));
-      const copyOut = 1 - Math.max(0, Math.min(1, (pct - .67) / .18));
-      if(copy){
-        copy.style.opacity = String(copyIn * copyOut);
-        copy.style.transform = `translateY(${(1-copyIn)*30 - pct*12}px)`;
+      if(windowStage) windowStage.style.opacity = String(1-segment(pct,.46,.54));
+
+      // Fullscreen cloud scene after passing the frame.
+      const skyIn = easeOut(segment(pct,.32,.51));
+      const skyOut = segment(pct,.88,1);
+      if(skyStage){
+        skyStage.style.opacity = String(skyIn*(1-skyOut*.65));
+        skyStage.style.transform = `scale(${1.16 - skyIn*.12 + pct*.05})`;
       }
-      const specsIn = Math.max(0, Math.min(1, (pct - .5) / .22));
-      if(specs){
-        specs.style.opacity = String(specsIn);
-        specs.style.transform = innerWidth <= 1050
-          ? `translateY(${(1-specsIn)*28}px)`
-          : `translateY(calc(-50% + ${(1-specsIn)*28}px))`;
+      if(skyA) skyA.style.transform = `translate3d(${pct*-7}vw,${pct*-9}vh,0) scale(${1+pct*.14})`;
+      if(skyB) skyB.style.transform = `translate3d(${pct*8}vw,${pct*-15}vh,0) scale(${1+pct*.2})`;
+
+      // Scene 3 — aircraft remains completely hidden, then rises from below and grows.
+      const jetEnter = easeInOut(segment(pct,.47,.70));
+      const jetExit = easeInOut(segment(pct,.84,1));
+      const enterY = (1-jetEnter)*(mobile ? 86 : 98);
+      const exitY = jetExit*(mobile ? -112 : -125);
+      const scale = .72 + jetEnter*(mobile ? .28 : .34) + jetExit*.10;
+      const jetOpacity = segment(pct,.49,.57) * (1-segment(pct,.94,1));
+      if(journeyJet){
+        journeyJet.style.opacity = String(jetOpacity);
+        journeyJet.style.transform = `translate3d(-50%,calc(-50% + ${enterY + exitY}vh),0) scale(${scale})`;
       }
-      if(launchProgress) launchProgress.style.width = `${pct * 100}%`;
-      if(scrollLabel) scrollLabel.style.opacity = String(1 - Math.min(1,pct*4));
+      if(jetStage) jetStage.style.opacity = String(1-segment(pct,.97,1));
+
+      // Side copy appears only after the aircraft reaches the centre.
+      const copyIn = easeOut(segment(pct,.68,.77));
+      const copyOut = 1-easeInOut(segment(pct,.85,.98));
+      const copyOpacity = copyIn*copyOut;
+      const copyExitY = segment(pct,.85,1)*-88;
+      if(jetCopyLeft){
+        jetCopyLeft.style.opacity = String(copyOpacity);
+        jetCopyLeft.style.transform = mobile
+          ? `translate(${(1-copyIn)*-30}px,${copyExitY}px)`
+          : `translate(${(1-copyIn)*-58}px,calc(-50% + ${copyExitY}px))`;
+      }
+      if(jetCopyRight){
+        jetCopyRight.style.opacity = String(copyOpacity);
+        jetCopyRight.style.transform = mobile
+          ? `translate(${(1-copyIn)*30}px,${copyExitY}px)`
+          : `translate(${(1-copyIn)*58}px,calc(-50% + ${copyExitY}px))`;
+      }
+
+      if(exitShade) exitShade.style.opacity = String(segment(pct,.88,1));
+      if(journeyProgress) journeyProgress.style.width = `${pct*100}%`;
+    } else if(headerBrand) {
+      headerBrand.style.opacity = '1';
+      headerBrand.style.transform = 'none';
     }
 
     const story = $('.flight-story');
     if(story){
       const rect = story.getBoundingClientRect();
       const total = story.offsetHeight - innerHeight;
-      const pct = Math.max(0, Math.min(1, -rect.top / Math.max(total,1)));
+      const pct = clamp(-rect.top / Math.max(total,1));
       const image = $('.story-media img');
       const type = $('.story-background-type');
       if(image) image.style.transform = `scale(${1.1 + pct*.12}) translateY(${pct*-3}%)`;
       if(type) type.style.transform = `translateX(${pct*-6}vw)`;
     }
   };
-  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  onScroll();
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {

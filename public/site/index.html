@@ -8,9 +8,9 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta property="og:title" content="Qatar Executive — The World, On Your Terms" />
   <meta property="og:description" content="Unofficial cinematic redesign concept for Qatar Executive." />
-  <meta property="og:image" content="/site/assets/hero-jet.webp" />
+  <meta property="og:image" content="/site/assets/g700-top-view.webp" />
   <title>Qatar Executive — The World, On Your Terms</title>
-  <link rel="preload" href="assets/hero-jet.webp" as="image" />
+  <link rel="preload" href="assets/g700-top-view.webp" as="image" />
   <link rel="preload" href="assets/qe-logo.png" as="image" />
   <link rel="icon" href="assets/qe-logo.webp" type="image/webp" />
   <link rel="stylesheet" href="styles.css" />
@@ -59,34 +59,70 @@
   </aside>
 
   <main id="top">
-    <section class="hero section-dark" aria-labelledby="heroTitle">
-      <div class="hero-media" aria-hidden="true">
-        <video autoplay muted loop playsinline poster="assets/hero-jet.webp">
-          <source src="https://videos.pexels.com/video-files/34746862/14730107_2546_1440_30fps.mp4" type="video/mp4" />
-        </video>
-        <img src="assets/hero-jet.webp" alt="" />
-      </div>
-      <div class="hero-vignette" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-
-      <div class="hero-logo-orbit" aria-hidden="true">
-        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
-      </div>
-
-      <div class="hero-content shell">
-        <div class="hero-topline reveal"><span>PRIVATE AVIATION BY QATAR AIRWAYS GROUP</span><span>DOHA · GLOBAL</span></div>
-        <h1 id="heroTitle" class="hero-title">
-          <span class="title-line"><span>THE WORLD,</span></span>
-          <span class="title-line italic"><span>ON YOUR TERMS.</span></span>
-        </h1>
-        <div class="hero-lower reveal">
-          <p>Ultra-long-range aircraft. Personalised service. A floating fleet ready wherever your next journey begins.</p>
-          <button class="hero-cta js-book" type="button"><span>BEGIN YOUR JOURNEY</span><i>↗</i></button>
+    <section class="journey" id="jetReveal" aria-label="Qatar Executive cinematic journey">
+      <div class="journey-pin">
+        <div class="journey-ambient" aria-hidden="true">
+          <span class="ambient-orb ambient-orb-a"></span>
+          <span class="ambient-orb ambient-orb-b"></span>
+          <span class="ambient-grain"></span>
         </div>
-      </div>
 
-      <div class="hero-side-meta" aria-hidden="true"><span>25.2867° N</span><span>51.5333° E</span></div>
-      <a class="scroll-cue" href="#intro"><i></i><span>SCROLL TO DISCOVER</span></a>
+        <div class="journey-window-stage">
+          <div class="journey-intro-copy journey-intro-left">
+            <span>PRIVATE AVIATION<br>BY QATAR AIRWAYS GROUP</span>
+            <h1>We are<br><em>movement.</em></h1>
+          </div>
+
+          <div class="journey-window-wrap">
+            <div class="journey-window-shell">
+              <div class="journey-shade" aria-hidden="true"><span></span></div>
+              <div class="journey-window-rim">
+                <div class="journey-window-glass">
+                  <div class="journey-clouds" aria-hidden="true">
+                    <i class="cloud cloud-a"></i>
+                    <i class="cloud cloud-b"></i>
+                    <i class="cloud cloud-c"></i>
+                    <i class="cloud cloud-d"></i>
+                  </div>
+                  <img class="journey-window-logo" src="assets/qe-logo.png" alt="Qatar Executive" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="journey-intro-copy journey-intro-right">
+            <h2>We are<br><em>distinction.</em></h2>
+            <p>Your freedom to enjoy life. Every flight is shaped around your comfort, time and ambition.</p>
+          </div>
+
+          <div class="journey-scroll-prompt" aria-hidden="true"><i></i><span>SCROLL TO START THE JOURNEY</span></div>
+        </div>
+
+        <div class="journey-sky-stage" aria-hidden="true">
+          <div class="journey-sky-depth sky-depth-a"></div>
+          <div class="journey-sky-depth sky-depth-b"></div>
+          <div class="journey-sky-glow"></div>
+        </div>
+
+        <div class="journey-jet-stage">
+          <div class="journey-jet-copy journey-jet-copy-left">
+            <span class="journey-kicker">THE FLAGSHIP</span>
+            <h2>Rise above<br><em>expectation.</em></h2>
+            <p>The Gulfstream G700 combines ultra-long-range performance with five living areas and a cabin created around you.</p>
+          </div>
+
+          <img class="journey-jet" src="assets/g700-top-view.webp" alt="Top view of Gulfstream G700" />
+
+          <div class="journey-jet-copy journey-jet-copy-right" aria-label="Gulfstream G700 specifications">
+            <div><small>Maximum range</small><strong>7,750 <b>NM</b></strong></div>
+            <div><small>Maximum speed</small><strong>Mach 0.935</strong></div>
+            <div><small>Passenger load</small><strong>13</strong></div>
+          </div>
+        </div>
+
+        <div class="journey-exit-shade" aria-hidden="true"></div>
+        <div class="journey-progress" aria-hidden="true"><span></span></div>
+      </div>
     </section>
 
     <section class="intro section-light" id="intro">
@@ -101,31 +137,6 @@
         </div>
       </div>
       <div class="marquee" aria-hidden="true"><div><span>WORLDWIDE CHARTER</span><i>✦</i><span>24 / 7 OPERATIONS</span><i>✦</i><span>BESPOKE SERVICE</span><i>✦</i><span>WORLDWIDE CHARTER</span><i>✦</i><span>24 / 7 OPERATIONS</span><i>✦</i><span>BESPOKE SERVICE</span></div></div>
-    </section>
-
-    <section class="jet-reveal section-dark" id="jetReveal" aria-label="Gulfstream G700 scroll reveal">
-      <div class="jet-reveal-sticky">
-        <div class="jet-reveal-grid" aria-hidden="true"></div>
-        <div class="jet-reveal-glow" aria-hidden="true"></div>
-        <div class="jet-reveal-word jet-reveal-word-top" aria-hidden="true">GULFSTREAM</div>
-        <div class="jet-reveal-word jet-reveal-word-bottom" aria-hidden="true">G700</div>
-
-        <div class="jet-reveal-copy shell">
-          <div class="section-index">02 / THE FLAGSHIP</div>
-          <h2>Rise above<br><em>expectation.</em></h2>
-          <p>A cinematic top view of the Gulfstream G700 rises through the frame as you scroll—precision, range and quiet confidence from every angle.</p>
-        </div>
-
-        <div class="jet-reveal-specs" aria-label="Gulfstream G700 highlights">
-          <div><strong>7,750</strong><span>NM MAX RANGE</span></div>
-          <div><strong>13</strong><span>PASSENGERS</span></div>
-          <div><strong>0.935</strong><span>MAX MACH</span></div>
-        </div>
-
-        <img class="jet-reveal-plane" src="g700-top-view.webp" alt="Top view of a Gulfstream G700 rising into view" />
-        <div class="jet-reveal-progress" aria-hidden="true"><span></span></div>
-        <div class="jet-reveal-scroll" aria-hidden="true">SCROLL TO LAUNCH</div>
-      </div>
     </section>
 
     <section class="fleet section-dark" id="fleet">

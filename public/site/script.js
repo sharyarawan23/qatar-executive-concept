@@ -44,28 +44,28 @@
       const total=hero.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      const shutterOpen=ease(seg(p,.015,.105));
+      const shutterOpen=ease(seg(p,.01,.085));
       if(windowShade) windowShade.style.transform=`translateY(${-shutterOpen*106}%)`;
 
-      const cloudZoom=ease(seg(p,.055,.48));
+      const cloudZoom=ease(seg(p,.035,.40));
       if(cloudVideo){
-        cloudVideo.style.transform=`scale(${1+cloudZoom*.5}) translate3d(${-cloudZoom*3.5}%,${-cloudZoom*2.8}%,0)`;
+        cloudVideo.style.transform=`scale(${1+cloudZoom*.72}) translate3d(${-cloudZoom*2.5}%,${-cloudZoom*22}%,0)`;
       }
 
-      const fieldIn=easeOut(seg(p,.20,.52));
+      const fieldIn=easeOut(seg(p,.16,.43));
       if(heroCloudField){
         heroCloudField.style.opacity=String(fieldIn);
-        heroCloudField.style.transform=`scale(${1.08-fieldIn*.07})`;
+        heroCloudField.style.transform=`translate3d(0,${-fieldIn*8}%,0) scale(${1.13-fieldIn*.08})`;
       }
 
-      const windowZoom=ease(seg(p,.07,.50));
-      const windowFade=1-seg(p,.48,.68);
+      const windowZoom=ease(seg(p,.05,.43));
+      const windowFade=1-seg(p,.41,.57);
       if(windowObject){
-        windowObject.style.transform=`translate(-50%,-50%) scale(${1+windowZoom*3.25})`;
+        windowObject.style.transform=`translate(-50%,calc(-50% - ${windowZoom*10}vh)) scale(${1+windowZoom*3.7})`;
         windowObject.style.opacity=String(windowFade);
       }
 
-      const copyOut=1-seg(p,.025,.14);
+      const copyOut=1-seg(p,.018,.13);
       if(heroCopyLeft){
         heroCopyLeft.style.opacity=String(copyOut);
         heroCopyLeft.style.transform=`translateY(${-seg(p,.025,.14)*42}px)`;
@@ -74,7 +74,7 @@
         heroCopyRight.style.opacity=String(copyOut);
         heroCopyRight.style.transform=`translateY(${seg(p,.025,.14)*42}px)`;
       }
-      if(scrollCue) scrollCue.style.opacity=String(1-seg(p,.015,.1));
+      if(scrollCue) scrollCue.style.opacity=String(1-seg(p,.01,.075));
     }
 
     if(fleetJourney){
@@ -82,16 +82,16 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      const timeIn=easeOut(seg(p,.015,.13));
-      const timeLift=ease(seg(p,.17,.31));
-      const timeOut=1-seg(p,.28,.39);
+      const timeIn=easeOut(seg(p,.01,.09));
+      const timeLift=ease(seg(p,.13,.23));
+      const timeOut=1-seg(p,.21,.30);
       if(timeStatement){
         timeStatement.style.opacity=String(timeIn*timeOut);
         timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*22}vh)) scale(${1-timeLift*.035})`;
       }
 
-      const wordsIn=easeOut(seg(p,.30,.44));
-      const wordsOut=1-seg(p,.62,.75);
+      const wordsIn=easeOut(seg(p,.25,.34));
+      const wordsOut=1-seg(p,.67,.80);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsOut);
         flyLeft.style.transform=`translate3d(${(1-wordsIn)*-24}px,${(1-wordsIn)*28}px,0)`;
@@ -101,11 +101,11 @@
         flyRight.style.transform=`translate3d(${(1-wordsIn)*24}px,${(1-wordsIn)*28}px,0)`;
       }
 
-      const jetEnter=ease(seg(p,.39,.66));
-      const jetRise=ease(seg(p,.66,.94));
-      const jetFade=1-seg(p,.955,.995);
-      const jetY=(1-jetEnter)*118 - jetRise*118;
-      const jetScale=.54 + jetEnter*.82 - jetRise*.42;
+      const jetEnter=ease(seg(p,.32,.60));
+      const jetRise=ease(seg(p,.60,.97));
+      const jetFade=1-seg(p,.965,.998);
+      const jetY=(1-jetEnter)*122 - jetRise*132;
+      const jetScale=.50 + jetEnter*.94 - jetRise*.48;
       if(revealJet){
         revealJet.style.opacity=String(seg(p,.39,.45)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
@@ -128,44 +128,44 @@
       description:'The flagship experience combines ultra-long-range performance, five living areas and the largest purpose-built business-jet cabin.',
       range:'7,750 nm',mach:'0.93',passengers:'13',zones:'5',
       media:[
-        {src:'assets/fleet-g700.png',label:'Top view',kind:'top',alt:'Gulfstream G700 top view'},
-        {src:'assets/g700-exterior-hd.webp',label:'Exterior',kind:'image',alt:'Qatar Executive Gulfstream G700 exterior'},
-        {src:'assets/g700-interior-1-hd.webp',label:'Main cabin',kind:'image',alt:'Qatar Executive Gulfstream G700 cabin'},
-        {label:'Cabin plan',kind:'floorplan'}
-      ],viewer:'assets/g700-interior-1-hd.webp',plan:'g700'
+        {src:'assets/g700-top-user.webp',label:'Top view',kind:'top',alt:'Gulfstream G700 full top view'},
+        {src:'assets/g700-exterior-user.webp',label:'Exterior',kind:'image',alt:'Gulfstream G700 exterior at sunset'},
+        {src:'assets/g700-interior-user.webp',label:'Interior',kind:'image',alt:'Gulfstream G700 luxury cabin'},
+        {src:'assets/g700-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Gulfstream G700 full aircraft cabin plan'}
+      ],viewer:'assets/g700-interior-user.webp',plan:'g700'
     },
     g650er:{
       eyebrow:'GULFSTREAM G650ER',short:'G650ER',title:'Supreme<br><em>comfort.</em>',
       description:'A global favourite for effortless ultra-long-range travel, combining industry-leading cabin technology with high-speed connectivity.',
       range:'7,500 nm',mach:'0.90',passengers:'13',zones:'4',
       media:[
-        {src:'assets/fleet-g650er.png',label:'Top view',kind:'top',alt:'Gulfstream G650ER top view'},
-        {src:'assets/starlink-premium.png',label:'Connected cabin',kind:'image',alt:'Connected Gulfstream cabin'},
-        {src:'assets/dining-premium.png',label:'Private dining',kind:'image',alt:'Private jet dining experience'},
-        {label:'Cabin plan',kind:'floorplan'}
-      ],viewer:'assets/starlink-premium.png',plan:'g650er'
+        {src:'assets/g650er-top-user.webp',label:'Top view',kind:'top',alt:'Gulfstream G650ER full top view'},
+        {src:'assets/g650er-exterior-user.webp',label:'Exterior',kind:'image',alt:'Gulfstream G650ER exterior at sunset'},
+        {src:'assets/g650er-interior-user.webp',label:'Interior',kind:'image',alt:'Gulfstream G650ER luxury cabin'},
+        {src:'assets/g650er-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Gulfstream G650ER full aircraft cabin plan'}
+      ],viewer:'assets/g650er-interior-user.webp',plan:'g650er'
     },
     global5000:{
       eyebrow:'BOMBARDIER GLOBAL 5000',short:'GLOBAL 5000',title:'Powerful<br><em>versatility.</em>',
       description:'One of the widest cabins in its class, with three distinct zones for business, dining, relaxation and rest.',
       range:'5,200 nm',mach:'0.89',passengers:'13',zones:'3',
       media:[
-        {src:'assets/fleet-global5000.png',label:'Top view',kind:'top',alt:'Bombardier Global 5000 top view'},
-        {src:'assets/global5000-interior-hd.webp',label:'Main cabin',kind:'image',alt:'Qatar Executive Global 5000 cabin'},
-        {src:'assets/global5000-interior.webp',label:'Cabin detail',kind:'image',alt:'Global 5000 interior detail'},
-        {label:'Cabin plan',kind:'floorplan'}
-      ],viewer:'assets/global5000-interior-hd.webp',plan:'global5000'
+        {src:'assets/global5000-top-user.webp',label:'Top view',kind:'top',alt:'Bombardier Global 5000 full top view'},
+        {src:'assets/global5000-exterior-user.webp',label:'Exterior',kind:'image',alt:'Bombardier Global 5000 exterior at sunset'},
+        {src:'assets/global5000-interior-user.webp',label:'Interior',kind:'image',alt:'Bombardier Global 5000 luxury cabin'},
+        {src:'assets/global5000-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Bombardier Global 5000 full aircraft cabin plan'}
+      ],viewer:'assets/global5000-interior-user.webp',plan:'global5000'
     },
     a319:{
       eyebrow:'AIRBUS A319CJ',short:'A319CJ',title:'Space<br><em>without limits.</em>',
       description:'Created for larger groups and family travel, with private bedroom, en-suite facilities, dining areas and generous living space.',
       range:'3,700 nm',mach:'0.82',passengers:'19',zones:'6',
       media:[
-        {src:'assets/fleet-a319.png',label:'Top view',kind:'top',alt:'Airbus A319CJ top view'},
-        {src:'assets/a319-interior-hd.webp',label:'Business cabin',kind:'image',alt:'Qatar Executive Airbus A319CJ cabin'},
-        {src:'assets/a319-interior.webp',label:'Cabin detail',kind:'image',alt:'Airbus A319CJ interior detail'},
-        {label:'Cabin plan',kind:'floorplan'}
-      ],viewer:'assets/a319-interior-hd.webp',plan:'a319'
+        {src:'assets/a319-top-user.webp',label:'Top view',kind:'top',alt:'Airbus A319CJ full top view'},
+        {src:'assets/a319-exterior-user.webp',label:'Exterior',kind:'image',alt:'Airbus A319CJ exterior at sunset'},
+        {src:'assets/a319-interior-user.webp',label:'Interior',kind:'image',alt:'Airbus A319CJ luxury cabin'},
+        {src:'assets/a319-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Airbus A319CJ full aircraft cabin plan'}
+      ],viewer:'assets/a319-interior-user.webp',plan:'a319'
     }
   };
 
@@ -203,8 +203,9 @@
     if(item.kind==='floorplan'){
       mediaImage.hidden=true;
       floorStage.hidden=false;
-      floorStage.innerHTML=planSVG(activeFleet);
+      floorStage.innerHTML=`<div class="plan-caption"><span>Full aircraft cabin plan</span><strong>${data.short}</strong></div><img src="${item.src}" alt="${item.alt||data.short+' cabin plan'}" />`;
       stage.classList.remove('is-top');
+      stage.classList.add('is-floorplan');
     }else{
       floorStage.hidden=true;
       mediaImage.hidden=false;
@@ -212,6 +213,7 @@
       setTimeout(()=>{
         mediaImage.src=item.src;
         mediaImage.alt=item.alt;
+        stage.classList.remove('is-floorplan');
         stage.classList.toggle('is-top',item.kind==='top');
         mediaImage.style.opacity='1';
       },120);

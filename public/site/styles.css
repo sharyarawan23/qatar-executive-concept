@@ -452,3 +452,72 @@ main{position:relative;z-index:1}
 .fleet-media-thumbs button{aspect-ratio:1/1;min-height:0;overflow:hidden;background:#eee7de}
 .fleet-media-thumbs img{width:100%;height:100%;object-fit:cover}
 @media(max-width:760px){.fleet-journey{height:190vh}.fleet-showcase{padding-top:80px}.fleet-media-stage{aspect-ratio:1/1;height:auto;min-height:0}}
+
+/* V12 seamless cloud transition, refined typography and uploaded fleet imagery */
+.hero-cloud-field,
+.hero-clouds,
+.about-section,
+.about-clouds{background-color:#cfe4f2}
+
+/* conceal the hard horizontal join between the full-screen cloud scene and About */
+.about-section{
+  margin-top:-18vh;
+  padding-top:52vh;
+  background:
+    linear-gradient(180deg,rgba(207,228,242,0) 0%,rgba(207,228,242,.16) 14%,rgba(220,235,244,.62) 42%,#eef0ef 76%,#f3efe8 100%),
+    url('assets/hero-clouds-user.webp') center -10vh/cover no-repeat;
+}
+.about-section::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-4%;right:-4%;top:-20vh;height:44vh;
+  background:url('assets/hero-clouds-user.webp') center 61%/112% auto no-repeat;
+  filter:blur(5px) saturate(1.02);
+  opacity:.82;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 24%,#000 70%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,#000 24%,#000 70%,transparent 100%);
+  pointer-events:none;
+}
+.about-clouds{top:-18vh;bottom:35%;opacity:.58}
+
+/* Premium editorial lettering without an overly decorative look */
+.fly-word-left,
+.fly-word-right{
+  font-family:"Cormorant Garamond",serif;
+  font-style:normal;
+  font-weight:600;
+  letter-spacing:-.045em;
+  line-height:.8;
+}
+.fly-word-right{font-style:italic;font-weight:500}
+.about-lead strong{
+  font-family:"Cormorant Garamond",serif;
+  font-style:normal;
+  font-weight:600;
+  letter-spacing:-.035em;
+  color:#501b31;
+}
+.about-lead em{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:500;
+  letter-spacing:-.035em;
+}
+
+/* Full square gallery images: no accidental crop */
+.fleet-media-stage>img,
+.fleet-media-stage.is-top>img,
+.fleet-media-stage.is-floorplan>img{
+  object-fit:contain!important;
+  width:100%!important;
+  height:100%!important;
+  padding:18px!important;
+}
+.fleet-media-thumbs img{object-fit:contain!important;background:#eee8df;padding:3px}
+.fleet-media-stage{overflow:hidden}
+
+@media(max-width:760px){
+  .about-section{margin-top:-10vh;padding-top:34vh}
+  .about-section::before{top:-12vh;height:28vh}
+  .fly-word-left,.fly-word-right{font-size:clamp(58px,16vw,88px)}
+}

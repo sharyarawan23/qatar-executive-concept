@@ -32,11 +32,11 @@
       const pct = Math.max(0, Math.min(1, -rect.top / Math.max(total,1)));
       const eased = 1 - Math.pow(1 - pct, 3);
       const isMobile = innerWidth <= 760;
-      const startY = isMobile ? 46 : 56;
-      const endY = isMobile ? -2 : -8;
+      const startY = isMobile ? 52 : 60;
+      const endY = isMobile ? -4 : -10;
       const y = startY + (endY - startY) * eased;
-      const scale = (isMobile ? .62 : .7) + eased * (isMobile ? .34 : .38);
-      const rotate = -4 + eased * 4;
+      const scale = (isMobile ? .86 : .82) + eased * (isMobile ? .16 : .22);
+      const rotate = 0;
       const plane = $('.jet-reveal-plane');
       const glow = $('.jet-reveal-glow');
       const copy = $('.jet-reveal-copy');

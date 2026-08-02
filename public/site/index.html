@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#171216" />
-  <meta name="description" content="Unofficial premium redesign concept for Qatar Executive." />
+  <meta name="description" content="Premium Qatar Executive digital experience concept." />
   <meta name="robots" content="noindex,nofollow" />
   <title>Qatar Executive — The World, On Your Terms</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
-  <link rel="preload" href="assets/sky-above-the-clouds.png" as="image" />
+  <link rel="preload" href="assets/hero-window-frame.png" as="image" />
+  <link rel="preload" href="assets/hero-clouds.jpg" as="image" />
   <link rel="preload" href="assets/g700-top-view.webp" as="image" />
   <link rel="preload" href="assets/qe-logo.png" as="image" />
   <link rel="icon" href="assets/qe-logo.webp" type="image/webp" />
@@ -32,7 +33,7 @@
     <a href="#top" class="brand" aria-label="Qatar Executive home"><img src="assets/qe-logo.png" alt="Qatar Executive" /></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
       <a href="#about">About</a>
-      <a href="#aircraft">G700</a>
+      <a href="#aircraft">Fleet</a>
       <a href="#experience">Experience</a>
       <a href="#reach">Global reach</a>
     </nav>
@@ -46,47 +47,33 @@
   <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav>
       <a href="#about">About</a>
-      <a href="#aircraft">G700</a>
+      <a href="#aircraft">Fleet</a>
       <a href="#experience">Experience</a>
       <a href="#reach">Global reach</a>
     </nav>
     <button class="solid-button js-book" type="button">Plan your flight <span>↗</span></button>
-    <small>Unofficial redesign concept</small>
   </aside>
 
   <main id="top">
     <section class="window-journey" id="hero" aria-label="Cinematic aircraft window introduction">
       <div class="window-pin">
         <div class="hero-backdrop"><span></span><span></span></div>
-        <div class="hero-sky-fill" id="heroSkyFill">
-          <div class="cloud-layer cloud-layer-a"></div>
-          <div class="cloud-layer cloud-layer-b"></div>
-          <div class="cloud-layer cloud-layer-c"></div>
-        </div>
+        <div class="hero-cloud-field" id="heroCloudField"><i></i><i></i><i></i></div>
 
         <div class="hero-copy hero-copy-left">
           <p>PRIVATE AVIATION<br>BY QATAR AIRWAYS GROUP</p>
           <h1>We are<br><em>movement.</em></h1>
         </div>
 
-        <div class="window-object" id="windowObject">
-          <div class="window-halo"></div>
-          <div class="window-shell">
-            <div class="window-shade" id="windowShade"><i></i></div>
-            <div class="window-rim">
-              <div class="window-rim-inner">
-                <div class="window-glass">
-                  <div class="cloud-video" id="cloudVideo">
-                    <div class="cloud-layer cloud-layer-a"></div>
-                    <div class="cloud-layer cloud-layer-b"></div>
-                    <div class="cloud-layer cloud-layer-c"></div>
-                    <div class="cloud-light"></div>
-                  </div>
-                  <img class="window-logo" id="windowLogo" src="assets/qe-logo.png" alt="Qatar Executive" />
-                </div>
-              </div>
+        <div class="hero-window" id="windowObject">
+          <div class="hero-window-viewport">
+            <div class="hero-clouds" id="cloudVideo"><i></i><i></i><i></i></div>
+            <div class="hero-shutter" id="windowShade">
+              <img src="assets/qe-logo.png" alt="Qatar Executive" />
+              <span></span>
             </div>
           </div>
+          <img class="hero-window-frame" src="assets/hero-window-frame.png" alt="Luxury aircraft window" />
         </div>
 
         <div class="hero-copy hero-copy-right">
@@ -99,6 +86,7 @@
     </section>
 
     <section class="about-section" id="about">
+      <div class="about-clouds" aria-hidden="true"><i></i><i></i></div>
       <div class="shell about-grid">
         <div class="section-label reveal">01 / QATAR EXECUTIVE</div>
         <div class="about-copy">
@@ -111,100 +99,60 @@
       </div>
     </section>
 
-    <section class="manifest-jet" id="aircraft" aria-label="Gulfstream G700 reveal">
-      <div class="manifest-pin">
-        <div class="manifest-kicker">02 / THE FLAGSHIP</div>
+    <section class="fleet-journey" id="aircraft" aria-label="Qatar Executive fleet experience">
+      <div class="fleet-pin">
+        <div class="fleet-kicker">02 / THE FLAGSHIP</div>
 
-        <div class="manifest-statement" id="manifestStatement">
-          <p class="manifest-line">Your time is the</p>
-          <p class="manifest-line">rarest luxury.</p>
-          <p class="manifest-line manifest-line-muted">Every journey is designed</p>
-          <p class="manifest-line manifest-line-muted">to protect it.</p>
+        <div class="time-statement" id="timeStatement">
+          <span>Your time is the</span>
+          <strong>rarest luxury.</strong>
+          <small>Every journey is designed to protect it.</small>
         </div>
 
-        <div class="jet-word jet-word-left" aria-hidden="true">Fly</div>
-        <div class="jet-word jet-word-right" aria-hidden="true">Premium</div>
+        <div class="fly-word fly-word-left" id="flyWordLeft">Fly</div>
+        <div class="fly-word fly-word-right" id="flyWordRight">Premium</div>
 
-        <img class="hero-jet" id="heroJet" src="assets/g700-top-view.webp" alt="Top view of a Gulfstream G700" />
+        <img class="fleet-jet" id="fleetJet" src="assets/fleet-g700.png" alt="Gulfstream G700 top view" />
 
-        <div class="jet-side-copy jet-side-left" id="jetSideLeft">
-          <span>GULFSTREAM G700</span>
-          <h2>Beyond<br><em>expectation.</em></h2>
-          <p>Five living areas, whisper-quiet acoustics and a cabin designed around your rhythm.</p>
-        </div>
-        <div class="jet-side-copy jet-side-right" id="jetSideRight">
-          <div><small>MAXIMUM RANGE</small><strong>7,750 <b>NM</b></strong></div>
-          <div><small>MAXIMUM SPEED</small><strong>MACH 0.93</strong></div>
-          <div><small>PASSENGER LOAD</small><strong>13</strong></div>
+        <div class="fleet-tabs" id="fleetTabs" aria-label="Select aircraft">
+          <button class="is-active" type="button" data-fleet="g700"><b>01</b><span>G700</span></button>
+          <button type="button" data-fleet="g650er"><b>02</b><span>G650ER</span></button>
+          <button type="button" data-fleet="global5000"><b>03</b><span>Global 5000</span></button>
+          <button type="button" data-fleet="a319"><b>04</b><span>A319CJ</span></button>
         </div>
 
-        <div class="manifest-progress"><span></span></div>
-      </div>
-    </section>
-
-    <section class="aircraft-detail" id="g700Detail">
-      <div class="detail-shell shell">
-        <div class="detail-header reveal">
-          <div>
-            <span>03 / AIRCRAFT DETAILS</span>
-            <h2>G700</h2>
-          </div>
-          <div>
-            <span>ULTRA-LONG-RANGE AIRCRAFT</span>
-            <p>When the flagship has completed its reveal, the experience transitions into a clear overview of range, speed and onboard living zones.</p>
-          </div>
+        <div class="fleet-copy fleet-copy-left" id="fleetCopyLeft">
+          <span id="fleetEyebrow">GULFSTREAM G700</span>
+          <h2 id="fleetName">Beyond<br><em>expectation.</em></h2>
+          <p id="fleetDescription">The flagship experience: ultra-long-range performance, five living areas and a cabin shaped around privacy and wellbeing.</p>
+          <button class="view360-button" id="open360" type="button"><i>360°</i><span>Explore cabin</span></button>
         </div>
 
-        <div class="detail-layout">
-          <div class="detail-specs reveal">
-            <div><small>Maximum range</small><strong>7,750 nm</strong></div>
-            <div><small>Maximum altitude</small><strong>51,000 ft</strong></div>
-            <div><small>Maximum mach</small><strong>0.93</strong></div>
-            <div><small>Passenger load</small><strong>13</strong></div>
-          </div>
-
-          <div class="floorplan-wrap reveal" id="floorplanWrap">
-            <div class="floorplan-map is-active" aria-label="Illustrative G700 cabin layout">
-              <svg viewBox="0 0 280 960" role="img" aria-label="Illustrative cabin floor plan">
-                <defs>
-                  <linearGradient id="cabinFill" x1="0" x2="1">
-                    <stop stop-color="#faf6ee"/>
-                    <stop offset="1" stop-color="#e9e0d3"/>
-                  </linearGradient>
-                </defs>
-                <path d="M140 12 C183 45 198 82 198 132 L198 842 C198 902 180 936 140 950 C100 936 82 902 82 842 L82 132 C82 82 97 45 140 12Z" fill="url(#cabinFill)" stroke="#887d73" stroke-width="2"/>
-                <path d="M104 170h72v84h-72zM104 272h72v82h-72zM104 372h72v114h-72zM104 506h72v126h-72zM104 652h72v112h-72zM104 784h72v74h-72z" fill="none" stroke="#a89a8c"/>
-                <g fill="#d2c2b1" stroke="#8e8175">
-                  <rect x="108" y="186" width="26" height="35" rx="6"/><rect x="146" y="186" width="26" height="35" rx="6"/>
-                  <rect x="108" y="290" width="26" height="35" rx="6"/><rect x="146" y="290" width="26" height="35" rx="6"/>
-                  <rect x="108" y="395" width="26" height="46" rx="6"/><rect x="146" y="395" width="26" height="46" rx="6"/>
-                  <rect x="108" y="527" width="26" height="46" rx="6"/><rect x="146" y="527" width="26" height="46" rx="6"/>
-                  <rect x="108" y="680" width="64" height="52" rx="10"/>
-                  <rect x="108" y="802" width="64" height="38" rx="8"/>
-                </g>
-                <path d="M140 145v704" stroke="#b9aa9b" stroke-dasharray="5 7"/>
-              </svg>
-              <div class="floorplan-labels">
-                <span>01 / Club suite</span>
-                <span>02 / Dining</span>
-                <span>03 / Private suite</span>
-                <span>04 / Grand suite</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="detail-copy reveal">
-            <span>PRIVATE, EXCLUSIVE, BESPOKE</span>
-            <p>The industry’s largest business-jet cabin is arranged into distinct living zones for work, dining, rest and complete privacy.</p>
-            <button class="text-link" type="button" data-floorplan>Highlight living zones <span>↔</span></button>
-          </div>
+        <div class="fleet-copy fleet-copy-right" id="fleetCopyRight">
+          <div><small>MAXIMUM RANGE</small><strong id="fleetRange">7,750 <b>NM</b></strong></div>
+          <div><small>MAXIMUM MACH</small><strong id="fleetMach">0.93</strong></div>
+          <div><small>PASSENGER LOAD</small><strong id="fleetPassengers">13</strong></div>
         </div>
+
+        <div class="floorplan-overlay" id="floorplanOverlay" aria-label="Illustrative aircraft floor plan">
+          <div class="floorplan-title"><span>INSIDE THE AIRCRAFT</span><strong id="floorplanAircraft">G700</strong></div>
+          <svg viewBox="0 0 280 960" role="img" aria-label="Illustrative cabin floor plan">
+            <defs><linearGradient id="cabinFillV8" x1="0" x2="1"><stop stop-color="#fbf7f0"/><stop offset="1" stop-color="#d8c8b8"/></linearGradient></defs>
+            <path d="M140 12 C183 45 198 82 198 132 L198 842 C198 902 180 936 140 950 C100 936 82 902 82 842 L82 132 C82 82 97 45 140 12Z" fill="url(#cabinFillV8)" stroke="#8f7d6e" stroke-width="2"/>
+            <path d="M104 170h72v84h-72zM104 272h72v82h-72zM104 372h72v114h-72zM104 506h72v126h-72zM104 652h72v112h-72zM104 784h72v74h-72z" fill="none" stroke="#a69789"/>
+            <g fill="#c9b298" stroke="#8e8175"><rect x="108" y="186" width="26" height="35" rx="6"/><rect x="146" y="186" width="26" height="35" rx="6"/><rect x="108" y="290" width="26" height="35" rx="6"/><rect x="146" y="290" width="26" height="35" rx="6"/><rect x="108" y="395" width="26" height="46" rx="6"/><rect x="146" y="395" width="26" height="46" rx="6"/><rect x="108" y="527" width="26" height="46" rx="6"/><rect x="146" y="527" width="26" height="46" rx="6"/><rect x="108" y="680" width="64" height="52" rx="10"/><rect x="108" y="802" width="64" height="38" rx="8"/></g>
+            <path d="M140 145v704" stroke="#b9aa9b" stroke-dasharray="5 7"/>
+          </svg>
+          <div class="floorplan-zones"><span>Club suite</span><span>Dining</span><span>Private suite</span><span>Grand suite</span></div>
+        </div>
+
+        <div class="fleet-progress"><span></span></div>
       </div>
     </section>
 
     <section class="experience" id="experience">
       <div class="shell experience-head reveal">
-        <span>04 / THE EXECUTIVE EXPERIENCE</span>
+        <span>03 / THE EXECUTIVE EXPERIENCE</span>
         <h2>A better way<br><em>to fly.</em></h2>
       </div>
 
@@ -248,7 +196,7 @@
     <section class="global-reach" id="reach">
       <div class="global-bg"></div>
       <div class="shell global-content">
-        <div class="global-copy reveal"><span>05 / GLOBAL REACH</span><h2>The world,<br><em>on your terms.</em></h2><p>A floating-fleet model positions aircraft around global demand, reducing unnecessary repositioning and bringing the right aircraft closer to your journey.</p></div>
+        <div class="global-copy reveal"><span>04 / GLOBAL REACH</span><h2>The world,<br><em>on your terms.</em></h2><p>A floating-fleet model positions aircraft around global demand, reducing unnecessary repositioning and bringing the right aircraft closer to your journey.</p></div>
         <div class="route-board reveal">
           <button class="route is-active" type="button" data-city="LONDON" data-time="06:45"><span>DOH</span><i></i><b>LHR</b></button>
           <button class="route" type="button" data-city="NEW YORK" data-time="13:20"><span>DOH</span><i></i><b>JFK</b></button>
@@ -265,8 +213,18 @@
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-grid"><img src="assets/qe-logo.png" alt="Qatar Executive" /><div><span>Contact</span><a href="tel:+97440221700">+974 4022 1700</a><a href="mailto:request@qatarexec.com.qa">request@qatarexec.com.qa</a></div><div><span>Explore</span><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a></div><div><span>Concept</span><p>Unofficial redesign created for presentation purposes. Brand assets remain the property of their respective owner.</p></div></div>
+    <div class="shell footer-grid"><img src="assets/qe-logo.png" alt="Qatar Executive" /><div><span>Contact</span><a href="tel:+97440221700">+974 4022 1700</a><a href="mailto:request@qatarexec.com.qa">request@qatarexec.com.qa</a></div><div><span>Explore</span><a href="#aircraft">Fleet</a><a href="#experience">Experience</a><a href="#reach">Global reach</a></div><div><span>Concept</span><p>Premium redesign presentation. Brand assets remain the property of their respective owner.</p></div></div>
   </footer>
+
+
+  <div class="viewer360" id="viewer360" aria-hidden="true">
+    <button class="viewer360-backdrop" type="button" data-close360 aria-label="Close 360 view"></button>
+    <div class="viewer360-panel" role="dialog" aria-modal="true" aria-labelledby="viewer360Title">
+      <button class="viewer360-close" type="button" data-close360 aria-label="Close">×</button>
+      <div class="viewer360-head"><span>SAMPLE 360° CABIN PREVIEW</span><h2 id="viewer360Title">Gulfstream G700</h2><p>Drag horizontally to explore the cabin. Official Qatar Executive 360° imagery can replace this sample later.</p></div>
+      <div class="viewer360-scene" id="viewer360Scene"><div class="viewer360-pan" id="viewer360Pan"></div><span>DRAG TO LOOK AROUND ↔</span></div>
+    </div>
+  </div>
 
   <div class="booking-drawer" id="bookingDrawer" aria-hidden="true">
     <button class="booking-backdrop js-close-booking" type="button" aria-label="Close booking form"></button>

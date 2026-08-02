@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#19030f" />
-  <meta name="description" content="Unofficial Qatar Executive cinematic redesign concept inspired by modern private aviation experiences." />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#171216" />
+  <meta name="description" content="Unofficial premium redesign concept for Qatar Executive." />
   <meta name="robots" content="noindex,nofollow" />
-  <meta property="og:title" content="Qatar Executive — The World, On Your Terms" />
-  <meta property="og:description" content="Unofficial cinematic redesign concept for Qatar Executive." />
-  <meta property="og:image" content="/site/assets/g700-top-view.webp" />
   <title>Qatar Executive — The World, On Your Terms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/cloudscape.webp" as="image" />
   <link rel="preload" href="assets/g700-top-view.webp" as="image" />
   <link rel="preload" href="assets/qe-logo.png" as="image" />
   <link rel="icon" href="assets/qe-logo.webp" type="image/webp" />
@@ -18,323 +19,222 @@
 <body>
   <div class="preloader" id="preloader" aria-hidden="true">
     <img src="assets/qe-logo.png" alt="" />
-    <div class="preloader-track"><span></span></div>
+    <div class="preloader-line"><span></span></div>
     <small>PREPARING YOUR JOURNEY</small>
   </div>
 
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="scroll-meter" aria-hidden="true"><span></span></div>
+  <div class="cursor cursor-dot" aria-hidden="true"></div>
+  <div class="cursor cursor-ring" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
-    <a class="brand" href="#top" aria-label="Qatar Executive home">
-      <img src="assets/qe-logo.png" alt="Qatar Executive" />
-    </a>
+    <a href="#top" class="brand" aria-label="Qatar Executive home"><img src="assets/qe-logo.png" alt="Qatar Executive" /></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#jetReveal">Fleet</a>
-      <a href="#experience">Experience</a>
-      <a href="#reach">Global reach</a>
-      <a href="#services">Services</a>
+      <a href="#about">About</a><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a>
     </nav>
     <div class="header-actions">
-      <button class="language-button" type="button" aria-label="Change language">EN <span>/</span> ع</button>
-      <button class="plan-button js-book" type="button">Plan your flight <span>↗</span></button>
-      <button class="menu-button" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><i></i><i></i></button>
+      <button class="language" type="button">EN <span>/</span> ع</button>
+      <button class="outline-button js-book" type="button">Plan your flight <span>↗</span></button>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
     </div>
   </header>
 
   <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <div class="mobile-menu-inner">
-      <p>QATAR EXECUTIVE</p>
-      <nav>
-        <a href="#jetReveal"><span>01</span> Fleet</a>
-        <a href="#experience"><span>02</span> Experience</a>
-        <a href="#reach"><span>03</span> Global reach</a>
-        <a href="#services"><span>04</span> Services</a>
-      </nav>
-      <button class="solid-button js-book" type="button">Plan your flight <span>↗</span></button>
-      <small>Unofficial redesign concept</small>
-    </div>
+    <nav><a href="#about">About</a><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a></nav>
+    <button class="solid-button js-book" type="button">Plan your flight <span>↗</span></button>
+    <small>Unofficial redesign concept</small>
   </aside>
 
   <main id="top">
-    <section class="journey" id="jetReveal" aria-label="Qatar Executive cinematic journey">
-      <div class="journey-pin">
-        <div class="journey-ambient" aria-hidden="true">
-          <span class="ambient-orb ambient-orb-a"></span>
-          <span class="ambient-orb ambient-orb-b"></span>
-          <span class="ambient-grain"></span>
+    <!-- ROUND WINDOW / MOVING CLOUDS / CAMERA PUSH-IN -->
+    <section class="window-journey" id="hero" aria-label="Cinematic aircraft window introduction">
+      <div class="window-pin">
+        <div class="hero-backdrop"><span></span><span></span></div>
+        <div class="hero-copy hero-copy-left">
+          <p>PRIVATE AVIATION<br>BY QATAR AIRWAYS GROUP</p>
+          <h1>We are<br><em>movement.</em></h1>
         </div>
-
-        <div class="journey-window-stage">
-          <div class="journey-intro-copy journey-intro-left">
-            <span>PRIVATE AVIATION<br>BY QATAR AIRWAYS GROUP</span>
-            <h1>We are<br><em>movement.</em></h1>
-          </div>
-
-          <div class="journey-window-wrap">
-            <div class="journey-window-shell">
-              <div class="journey-shade" aria-hidden="true"><span></span></div>
-              <div class="journey-window-rim">
-                <div class="journey-window-glass">
-                  <div class="journey-clouds" aria-hidden="true">
-                    <i class="cloud cloud-a"></i>
-                    <i class="cloud cloud-b"></i>
-                    <i class="cloud cloud-c"></i>
-                    <i class="cloud cloud-d"></i>
-                  </div>
-                  <img class="journey-window-logo" src="assets/qe-logo.png" alt="Qatar Executive" />
+        <div class="window-object" id="windowObject">
+          <div class="window-halo"></div>
+          <div class="window-shell">
+            <div class="window-shade" id="windowShade"><i></i></div>
+            <div class="window-rim">
+              <div class="window-glass">
+                <div class="cloud-video" id="cloudVideo">
+                  <div class="cloud-layer cloud-layer-a"></div>
+                  <div class="cloud-layer cloud-layer-b"></div>
+                  <div class="cloud-light"></div>
                 </div>
+                <img class="window-logo" id="windowLogo" src="assets/qe-logo.png" alt="Qatar Executive" />
               </div>
             </div>
           </div>
+        </div>
+        <div class="hero-copy hero-copy-right">
+          <h2>We are<br><em>distinction.</em></h2>
+          <p>Privacy, precision and Qatari hospitality — shaped around the way you move.</p>
+        </div>
+        <div class="scroll-cue"><i></i><span>SCROLL TO ENTER</span></div>
+      </div>
+    </section>
 
-          <div class="journey-intro-copy journey-intro-right">
-            <h2>We are<br><em>distinction.</em></h2>
-            <p>Your freedom to enjoy life. Every flight is shaped around your comfort, time and ambition.</p>
+    <!-- SHORT SOPHISTICATED ABOUT -->
+    <section class="about-section section-ivory" id="about">
+      <div class="shell about-grid">
+        <div class="section-label reveal">01 / QATAR EXECUTIVE</div>
+        <div class="about-copy">
+          <p class="about-lead reveal">Private aviation, refined through the standards of Qatar Airways Group.</p>
+          <div class="about-bottom reveal">
+            <p>From first request to final arrival, every detail is handled with discretion, operational precision and a distinctly Qatari sense of welcome.</p>
+            <span>WORLDWIDE CHARTER · 24 / 7 OPERATIONS</span>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="journey-scroll-prompt" aria-hidden="true"><i></i><span>SCROLL TO START THE JOURNEY</span></div>
+    <!-- BIG TEXT FIRST, THEN JET REVEAL -->
+    <section class="manifest-jet" id="aircraft" aria-label="Gulfstream G700 reveal">
+      <div class="manifest-pin">
+        <div class="manifest-bg"><span></span><span></span></div>
+        <div class="manifest-kicker">02 / THE FLAGSHIP</div>
+        <div class="manifest-statement" id="manifestStatement">
+          <p class="manifest-line">Your time is the</p>
+          <p class="manifest-line">rarest luxury.</p>
+          <p class="manifest-line manifest-line-muted">Every journey is designed</p>
+          <p class="manifest-line manifest-line-muted">to protect it.</p>
         </div>
 
-        <div class="journey-sky-stage" aria-hidden="true">
-          <div class="journey-sky-depth sky-depth-a"></div>
-          <div class="journey-sky-depth sky-depth-b"></div>
-          <div class="journey-sky-glow"></div>
+        <div class="jet-word jet-word-left" aria-hidden="true">Fly in</div>
+        <div class="jet-word jet-word-right" aria-hidden="true">Luxury</div>
+        <img class="hero-jet" id="heroJet" src="assets/g700-top-view.webp" alt="Top view of a Gulfstream G700" />
+
+        <div class="jet-side-copy jet-side-left" id="jetSideLeft">
+          <span>GULFSTREAM G700</span>
+          <h2>Beyond<br><em>expectation.</em></h2>
+          <p>Five living areas, whisper-quiet acoustics and a cabin designed around your rhythm.</p>
         </div>
+        <div class="jet-side-copy jet-side-right" id="jetSideRight">
+          <div><small>MAXIMUM RANGE</small><strong>7,750 <b>NM</b></strong></div>
+          <div><small>MAXIMUM SPEED</small><strong>MACH 0.93</strong></div>
+          <div><small>PASSENGER LOAD</small><strong>13</strong></div>
+        </div>
+        <div class="manifest-progress"><span></span></div>
+      </div>
+    </section>
 
-        <div class="journey-jet-stage">
-          <div class="journey-jet-copy journey-jet-copy-left">
-            <span class="journey-kicker">THE FLAGSHIP</span>
-            <h2>Rise above<br><em>expectation.</em></h2>
-            <p>The Gulfstream G700 combines ultra-long-range performance with five living areas and a cabin created around you.</p>
-          </div>
-
-          <img class="journey-jet" src="assets/g700-top-view.webp" alt="Top view of Gulfstream G700" />
-
-          <div class="journey-jet-copy journey-jet-copy-right" aria-label="Gulfstream G700 specifications">
-            <div><small>Maximum range</small><strong>7,750 <b>NM</b></strong></div>
-            <div><small>Maximum speed</small><strong>Mach 0.935</strong></div>
+    <!-- AIRCRAFT DETAILS / FLOOR PLAN CROSSFADE -->
+    <section class="aircraft-detail section-stone" id="g700Detail">
+      <div class="detail-shell shell">
+        <div class="detail-header reveal">
+          <div><span>03 / GULFSTREAM</span><h2>G700</h2></div>
+          <div><span>ULTRA-LONG-RANGE AIRCRAFT</span><p>For those who seek nothing less than extraordinary in luxury travel.</p></div>
+        </div>
+        <div class="detail-layout">
+          <div class="detail-specs reveal">
+            <div><small>Maximum range</small><strong>7,750 nm</strong></div>
+            <div><small>Maximum altitude</small><strong>51,000 ft</strong></div>
+            <div><small>Maximum mach</small><strong>0.93</strong></div>
             <div><small>Passenger load</small><strong>13</strong></div>
           </div>
-        </div>
-
-        <div class="journey-exit-shade" aria-hidden="true"></div>
-        <div class="journey-progress" aria-hidden="true"><span></span></div>
-      </div>
-    </section>
-
-    <section class="intro section-light" id="intro">
-      <div class="shell intro-grid">
-        <div class="section-index reveal">01 / PRIVATE AVIATION</div>
-        <div class="intro-main">
-          <p class="intro-statement reveal-words">Your time is the rarest luxury. Every Qatar Executive journey is designed to protect it.</p>
-          <div class="intro-detail reveal">
-            <p>Fly to more than 4,000 airports worldwide with a fleet positioned around global demand. From the first request to final arrival, each detail is handled with discretion, precision and unmistakable Qatari hospitality.</p>
-            <button class="round-link" type="button" data-scroll="#jetReveal" aria-label="Discover fleet">↓</button>
-          </div>
-        </div>
-      </div>
-      <div class="marquee" aria-hidden="true"><div><span>WORLDWIDE CHARTER</span><i>✦</i><span>24 / 7 OPERATIONS</span><i>✦</i><span>BESPOKE SERVICE</span><i>✦</i><span>WORLDWIDE CHARTER</span><i>✦</i><span>24 / 7 OPERATIONS</span><i>✦</i><span>BESPOKE SERVICE</span></div></div>
-    </section>
-
-    <section class="fleet section-dark" id="fleet">
-      <div class="shell fleet-head reveal">
-        <div><div class="section-index">03 / THE FLEET</div><h2>Fly the<br><em>flagship.</em></h2></div>
-        <p>Four aircraft types. One uncompromising standard. Select a jet to explore its mission, cabin and performance.</p>
-      </div>
-
-      <div class="fleet-showcase shell" id="fleetShowcase">
-        <div class="fleet-visual reveal">
-          <div class="fleet-horizon"></div>
-          <div class="fleet-ghost-number" data-fleet-number>G700</div>
-          <img src="assets/g700-exterior.webp" alt="Gulfstream G700" data-fleet-image />
-          <div class="fleet-floating-label"><span data-fleet-label>ULTRA-LONG-RANGE FLAGSHIP</span><b data-fleet-count>01 / 04</b></div>
-        </div>
-
-        <div class="fleet-controls reveal">
-          <div class="fleet-tabs" role="tablist" aria-label="Choose aircraft">
-            <button class="fleet-tab is-active" type="button" role="tab" aria-selected="true" data-fleet="0"><span>01</span> Gulfstream G700</button>
-            <button class="fleet-tab" type="button" role="tab" aria-selected="false" data-fleet="1"><span>02</span> Gulfstream G650ER</button>
-            <button class="fleet-tab" type="button" role="tab" aria-selected="false" data-fleet="2"><span>03</span> Global 5000</button>
-            <button class="fleet-tab" type="button" role="tab" aria-selected="false" data-fleet="3"><span>04</span> Airbus A319CJ</button>
-          </div>
-
-          <div class="fleet-info">
-            <div class="fleet-title-row"><h3 data-fleet-title>Gulfstream G700</h3><button type="button" class="round-link js-book" aria-label="Request this aircraft">↗</button></div>
-            <p data-fleet-copy>The largest cabin in business aviation, built for ultra-long-range travel with five distinct living areas and uncompromising comfort.</p>
-            <div class="specifications">
-              <div><span>Maximum range</span><strong data-fleet-range>7,750 nm</strong></div>
-              <div><span>Passenger load</span><strong data-fleet-passengers>13</strong></div>
-              <div><span>Maximum speed</span><strong data-fleet-speed>Mach 0.935</strong></div>
-              <div><span>Cabin zones</span><strong data-fleet-zones>5</strong></div>
+          <div class="floorplan-wrap reveal" id="floorplanWrap">
+            <div class="floorplan-aircraft">
+              <img src="assets/g700-top-view.webp" alt="G700 exterior top view" />
+            </div>
+            <div class="floorplan-map" aria-label="Illustrative G700 cabin layout">
+              <svg viewBox="0 0 280 960" role="img" aria-label="Illustrative cabin floor plan">
+                <defs><linearGradient id="cabinFill" x1="0" x2="1"><stop stop-color="#faf6ee"/><stop offset="1" stop-color="#e9e0d3"/></linearGradient></defs>
+                <path d="M140 12 C183 45 198 82 198 132 L198 842 C198 902 180 936 140 950 C100 936 82 902 82 842 L82 132 C82 82 97 45 140 12Z" fill="url(#cabinFill)" stroke="#887d73" stroke-width="2"/>
+                <path d="M104 170h72v84h-72zM104 272h72v82h-72zM104 372h72v114h-72zM104 506h72v126h-72zM104 652h72v112h-72zM104 784h72v74h-72z" fill="none" stroke="#a89a8c"/>
+                <g fill="#d2c2b1" stroke="#8e8175">
+                  <rect x="108" y="186" width="26" height="35" rx="6"/><rect x="146" y="186" width="26" height="35" rx="6"/>
+                  <rect x="108" y="290" width="26" height="35" rx="6"/><rect x="146" y="290" width="26" height="35" rx="6"/>
+                  <rect x="108" y="395" width="26" height="46" rx="6"/><rect x="146" y="395" width="26" height="46" rx="6"/>
+                  <rect x="108" y="527" width="26" height="46" rx="6"/><rect x="146" y="527" width="26" height="46" rx="6"/>
+                  <rect x="108" y="680" width="64" height="52" rx="10"/>
+                  <rect x="108" y="802" width="64" height="38" rx="8"/>
+                </g>
+                <path d="M140 145v704" stroke="#b9aa9b" stroke-dasharray="5 7"/>
+              </svg>
+              <div class="floorplan-labels"><span>01 / Club suite</span><span>02 / Dining</span><span>03 / Private suite</span><span>04 / Grand suite</span></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="flight-story" aria-label="G700 immersive story">
-      <div class="story-sticky">
-        <div class="story-media">
-          <img src="assets/g700-interior-1.webp" alt="Qatar Executive private jet interior" />
-          <div class="story-overlay"></div>
-        </div>
-        <div class="story-background-type" aria-hidden="true">G700</div>
-        <div class="shell story-content">
-          <div class="section-index reveal">THE FLAGSHIP / G700</div>
-          <h2 class="reveal">Arrive ready.<br><em>Not recovering.</em></h2>
-          <p class="reveal">Fresh-air circulation, whisper-quiet acoustics, panoramic windows and separate living zones create a cabin that works around your rhythm.</p>
-          <div class="story-stats reveal">
-            <div><strong class="counter" data-value="7750">0</strong><span>nm maximum range</span></div>
-            <div><strong class="counter" data-value="51000">0</strong><span>ft maximum altitude</span></div>
-            <div><strong class="counter" data-value="13">0</strong><span>passengers</span></div>
+          <div class="detail-copy reveal">
+            <span>PRIVATE, EXCLUSIVE, BESPOKE</span>
+            <p>The industry’s largest business-jet cabin is arranged into distinct living zones for work, dining, rest and complete privacy.</p>
+            <button class="text-link" type="button" data-floorplan>Explore cabin layout <span>↔</span></button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="experience section-light" id="experience">
-      <div class="shell experience-head reveal">
-        <div><div class="section-index">04 / THE EXPERIENCE</div><h2>Luxury that<br><em>moves with you.</em></h2></div>
-        <p>Every journey is individually composed—from your preferred meal and cabin atmosphere to connectivity, rest and arrival arrangements.</p>
-      </div>
-
-      <div class="shell experience-grid">
-        <article class="experience-card card-large reveal">
-          <img src="assets/g700-dining.webp" alt="Fine dining aboard Qatar Executive" />
-          <div class="card-shade"></div>
-          <div class="card-number">01</div>
-          <div class="card-copy"><h3>Dining, personally curated</h3><p>Menus and service timed around you, not the clock.</p></div>
-        </article>
-        <article class="experience-card card-tall reveal">
-          <img src="assets/g700-interior-2.webp" alt="Luxury private jet lounge" />
-          <div class="card-shade"></div>
-          <div class="card-number">02</div>
-          <div class="card-copy"><h3>Your private space</h3><p>Work, dine, meet or sleep in complete discretion.</p></div>
-        </article>
-        <article class="experience-card card-connect reveal">
-          <div class="signal-visual" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-          <div class="card-number">03</div>
-          <div class="card-copy"><h3>Starlink connectivity</h3><p>Low-latency, high-speed Wi-Fi on select aircraft.</p></div>
-        </article>
-        <article class="experience-card card-pets reveal">
-          <div class="pet-orbit" aria-hidden="true">QE</div>
-          <div class="card-number">04</div>
-          <div class="card-copy"><h3>Pets on board</h3><p>Your companion travels beside you with care and comfort.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="reach section-dark" id="reach">
-      <div class="shell reach-grid">
-        <div class="reach-copy reveal">
-          <div class="section-index">05 / GLOBAL REACH</div>
-          <h2>Doha to<br><em>anywhere.</em></h2>
-          <p>Choose a destination and see how a floating fleet brings the world within reach.</p>
-          <div class="route-buttons" role="list">
-            <button class="route-button is-active" type="button" data-city="LONDON" data-code="LHR" data-distance="3,255" data-angle="-28"><span>DOH</span><i></i><span>LHR</span><small>London</small></button>
-            <button class="route-button" type="button" data-city="NEW YORK" data-code="JFK" data-distance="5,810" data-angle="-108"><span>DOH</span><i></i><span>JFK</span><small>New York</small></button>
-            <button class="route-button" type="button" data-city="TOKYO" data-code="HND" data-distance="4,448" data-angle="38"><span>DOH</span><i></i><span>HND</span><small>Tokyo</small></button>
-            <button class="route-button" type="button" data-city="CAPE TOWN" data-code="CPT" data-distance="4,067" data-angle="125"><span>DOH</span><i></i><span>CPT</span><small>Cape Town</small></button>
-          </div>
+    <!-- PREMIUM EXPERIENCE / PETS -->
+    <section class="experience section-ivory" id="experience">
+      <div class="shell experience-head reveal"><span>04 / THE EXECUTIVE EXPERIENCE</span><h2>A better way<br><em>to fly.</em></h2></div>
+      <div class="experience-feature shell">
+        <div class="experience-accordion reveal">
+          <article class="experience-item is-open" data-experience="pets"><button type="button"><span>Flying with pets</span><i>−</i></button><div><p>Your companion remains close, calm and cared for throughout the journey. Our team helps coordinate the finer details before departure.</p></div></article>
+          <article class="experience-item" data-experience="crew"><button type="button"><span>Dedicated cabin crew</span><i>+</i></button><div><p>Experienced crew deliver warm, attentive service while maintaining rigorous safety and security standards.</p></div></article>
+          <article class="experience-item" data-experience="wifi"><button type="button"><span>High-speed connectivity</span><i>+</i></button><div><p>Starlink-powered connectivity on equipped aircraft keeps work, streaming and communication moving without compromise.</p></div></article>
+          <article class="experience-item" data-experience="dining"><button type="button"><span>Bespoke dining</span><i>+</i></button><div><p>Menus, refreshments and special occasions are tailored around your preferences and prepared with exceptional care.</p></div></article>
         </div>
-
-        <div class="globe-stage reveal" aria-label="Interactive route globe">
-          <div class="globe" id="globe">
-            <div class="globe-latitudes"></div>
-            <div class="globe-longitudes"></div>
-            <div class="globe-core"></div>
-            <div class="route-arc" id="routeArc"><span class="plane-dot">✦</span></div>
-            <span class="map-point doha">DOH</span>
-            <span class="map-point destination" id="destinationPoint">LHR</span>
-          </div>
-          <div class="route-stat"><span>Selected route</span><strong><b>DOH</b> → <b id="routeCode">LHR</b></strong><small><span id="routeMiles">3,255</span> nm indicative distance</small></div>
-          <div class="global-availability"><strong>24 / 7</strong><span>GLOBAL OPERATIONS</span></div>
+        <div class="experience-media reveal">
+          <img id="experienceImage" src="https://static.wixstatic.com/media/d37a82_0b0e19363a8b488bacc28ae8bb8a14ec~mv2.png/v1/fill/w_980,h_550,al_c,q_90/d37a82_0b0e19363a8b488bacc28ae8bb8a14ec~mv2.png" onerror="this.onerror=null;this.src='assets/g700-interior-2-hd.webp'" alt="Pet-friendly private jet experience" />
+          <div class="experience-caption"><span id="experienceIndex">01</span><p id="experienceCaption">Your companions, welcomed onboard.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="services section-light" id="services">
-      <div class="shell services-head reveal">
-        <div><div class="section-index">05 / CAPABILITIES</div><h2>Beyond<br><em>the flight.</em></h2></div>
-        <p>An integrated aviation ecosystem supporting charter clients, aircraft owners and global operations.</p>
-      </div>
-      <div class="shell services-list">
-        <button class="service-row reveal js-book" type="button"><span>01</span><h3>Private jet charter</h3><p>Worldwide on-demand journeys tailored to your schedule.</p><i>↗</i></button>
-        <button class="service-row reveal" type="button"><span>02</span><h3>Aircraft management</h3><p>Flight operations, crew planning and ownership support.</p><i>↗</i></button>
-        <button class="service-row reveal" type="button"><span>03</span><h3>Aircraft maintenance</h3><p>Licensed technical expertise under rigorous safety standards.</p><i>↗</i></button>
-        <button class="service-row reveal" type="button"><span>04</span><h3>FBO & ground services</h3><p>Discreet 24/7 handling at Doha International Airport.</p><i>↗</i></button>
+    <!-- CURATED PREMIUM VISUALS -->
+    <section class="editorial-gallery section-dark">
+      <div class="shell gallery-head reveal"><span>THE FINER DETAILS</span><h2>Made personal.<br><em>Delivered precisely.</em></h2></div>
+      <div class="gallery-grid shell">
+        <figure class="gallery-card gallery-card-wide reveal"><img src="assets/g700-dining-hd.webp" alt="Bespoke dining onboard" /><figcaption><span>01</span><h3>Dining, at your request</h3></figcaption></figure>
+        <figure class="gallery-card reveal"><img src="assets/g700-interior-1-hd.webp" alt="Private jet cabin" /><figcaption><span>02</span><h3>Space to arrive ready</h3></figcaption></figure>
+        <figure class="gallery-card reveal"><img src="assets/g700-exterior-hd.webp" alt="Private jet on the tarmac" /><figcaption><span>03</span><h3>A seamless departure</h3></figcaption></figure>
+        <figure class="gallery-card gallery-card-wide reveal"><img src="assets/global5000-interior-hd.webp" alt="Luxury private jet interior" /><figcaption><span>04</span><h3>Comfort without compromise</h3></figcaption></figure>
       </div>
     </section>
 
-    <section class="final-cta section-dark">
-      <div class="final-media"><img src="assets/g700-exterior.webp" alt="Qatar Executive G700" /></div>
-      <div class="final-shade"></div>
-      <div class="shell final-content reveal">
-        <div class="section-index">YOUR NEXT JOURNEY</div>
-        <h2>Where would you<br><em>like to be?</em></h2>
-        <button class="solid-button js-book" type="button">Plan your flight <span>↗</span></button>
+    <!-- GLOBAL REACH -->
+    <section class="global-reach" id="reach">
+      <div class="global-bg"></div>
+      <div class="shell global-content">
+        <div class="global-copy reveal"><span>05 / GLOBAL REACH</span><h2>The world,<br><em>on your terms.</em></h2><p>A floating-fleet model positions aircraft around global demand, reducing unnecessary repositioning and bringing the right aircraft closer to your journey.</p></div>
+        <div class="route-board reveal">
+          <button class="route is-active" type="button" data-city="LONDON" data-time="06:45"><span>DOH</span><i></i><b>LHR</b></button>
+          <button class="route" type="button" data-city="NEW YORK" data-time="13:20"><span>DOH</span><i></i><b>JFK</b></button>
+          <button class="route" type="button" data-city="SINGAPORE" data-time="07:35"><span>DOH</span><i></i><b>SIN</b></button>
+          <div class="route-result"><small>DIRECT JOURNEY</small><strong id="routeCity">LONDON</strong><span id="routeTime">06:45</span></div>
+        </div>
       </div>
+    </section>
+
+    <section class="final-cta section-maroon">
+      <div class="shell final-inner reveal"><span>BEGIN YOUR JOURNEY</span><h2>Where would you<br><em>like to be next?</em></h2><button class="cta-button js-book" type="button">Plan your flight <span>↗</span></button></div>
+      <div class="final-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-main">
-      <img src="assets/qe-logo.png" alt="Qatar Executive" class="footer-logo" />
-      <div class="footer-contact"><span>FLIGHT REQUESTS</span><a href="tel:+97440221700">+974 4022 1700</a><a href="mailto:request@qatarexec.com.qa">request@qatarexec.com.qa</a></div>
-      <nav><a href="#jetReveal">Fleet</a><a href="#experience">Experience</a><a href="#reach">Global reach</a><a href="#services">Services</a></nav>
-    </div>
-    <div class="shell footer-bottom"><p>Unofficial redesign concept for presentation purposes. Qatar Executive and related marks remain the property of their respective owner.</p><p>CONCEPT 2026</p></div>
+    <div class="shell footer-grid"><img src="assets/qe-logo.png" alt="Qatar Executive" /><div><span>Contact</span><a href="tel:+97440221700">+974 4022 1700</a><a href="mailto:request@qatarexec.com.qa">request@qatarexec.com.qa</a></div><div><span>Explore</span><a href="#aircraft">G700</a><a href="#experience">Experience</a><a href="#reach">Global reach</a></div><div><span>Concept</span><p>Unofficial redesign created for presentation purposes. Brand assets remain the property of their respective owner.</p></div></div>
   </footer>
 
+  <!-- WORKING FLIGHT REQUEST DRAWER -->
   <div class="booking-drawer" id="bookingDrawer" aria-hidden="true">
     <button class="booking-backdrop js-close-booking" type="button" aria-label="Close booking form"></button>
-    <section class="booking-panel" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
-      <div class="booking-head">
-        <div><span>PRIVATE FLIGHT REQUEST</span><h2 id="bookingTitle">Plan your journey.</h2></div>
-        <button class="booking-close js-close-booking" type="button" aria-label="Close">×</button>
-      </div>
-
-      <form id="bookingForm" novalidate>
-        <div class="trip-type" role="group" aria-label="Trip type">
-          <button class="is-active" type="button" data-trip="One way">One way</button>
-          <button type="button" data-trip="Round trip">Round trip</button>
-          <button type="button" data-trip="Multi-city">Multi-city</button>
-        </div>
+    <div class="booking-panel" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+      <button class="booking-close js-close-booking" type="button" aria-label="Close">×</button>
+      <span>QATAR EXECUTIVE</span><h2 id="bookingTitle">Plan your flight.</h2><p>Share your journey details and the charter team will be able to follow up.</p>
+      <form id="bookingForm">
+        <div class="trip-type"><button class="is-active" type="button" data-trip="One way">One way</button><button type="button" data-trip="Round trip">Round trip</button></div>
         <input type="hidden" name="tripType" value="One way" />
-
-        <div class="form-grid">
-          <label><span>Flying from *</span><input type="text" name="from" placeholder="City or airport" autocomplete="off" required /></label>
-          <label><span>Flying to *</span><input type="text" name="to" placeholder="City or airport" autocomplete="off" required /></label>
-          <label><span>Departure *</span><input type="date" name="departure" required /></label>
-          <label class="return-field"><span>Return</span><input type="date" name="returnDate" /></label>
-          <label><span>Passengers *</span><input type="number" name="passengers" min="1" max="19" value="1" required /></label>
-          <label><span>Preferred aircraft</span><select name="aircraft"><option>Best available aircraft</option><option>Gulfstream G700</option><option>Gulfstream G650ER</option><option>Bombardier Global 5000</option><option>Airbus A319CJ</option></select></label>
-        </div>
-
-        <div class="form-separator"><span>YOUR DETAILS</span></div>
-        <div class="form-grid">
-          <label><span>Full name *</span><input type="text" name="name" placeholder="Your name" required /></label>
-          <label><span>Email *</span><input type="email" name="email" placeholder="name@email.com" required /></label>
-          <label><span>Phone</span><input type="tel" name="phone" placeholder="+974" /></label>
-          <label><span>Company</span><input type="text" name="company" placeholder="Optional" /></label>
-        </div>
-        <label class="message-field"><span>Special requests</span><textarea name="message" rows="3" placeholder="Catering, pets, ground transport or any other request"></textarea></label>
-        <label class="consent"><input type="checkbox" name="consent" required /><span>I consent to the processing of my information for this flight request.</span></label>
-        <div class="form-error" id="formError" role="alert"></div>
-        <button class="submit-button" type="submit"><span>SUBMIT FLIGHT REQUEST</span><i>↗</i></button>
+        <div class="form-grid"><label>Flying from<input name="from" placeholder="City or airport" required /></label><label>Flying to<input name="to" placeholder="City or airport" required /></label><label>Departure<input name="departure" type="date" required /></label><label>Passengers<input name="passengers" type="number" min="1" max="19" value="2" required /></label><label>Full name<input name="fullName" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label><label class="form-full">Phone<input name="phone" autocomplete="tel" /></label><label class="form-full">Special requests<textarea name="notes" rows="3" placeholder="Dining, pets, transfers or other requirements"></textarea></label></div>
+        <label class="consent"><input type="checkbox" required /><span>I consent to this concept storing my submitted information so the request can be reviewed.</span></label>
+        <p class="form-error" id="formError" role="alert"></p><button class="submit-button" type="submit"><span>Submit flight request</span><b>↗</b></button>
       </form>
-
-      <div class="booking-success" id="bookingSuccess" hidden>
-        <div class="success-mark">✓</div>
-        <span>REQUEST RECEIVED</span>
-        <h3>Your journey is taking shape.</h3>
-        <p>Our private aviation team will contact you with the next steps. For urgent requests, call +974 4022 1700.</p>
-        <button class="solid-button js-close-booking" type="button">Close</button>
-      </div>
-    </section>
+      <div class="booking-success" id="bookingSuccess" hidden><span>✓</span><h3>Request received.</h3><p>Your journey details have been recorded.</p><button class="solid-button js-close-booking" type="button">Return to website</button></div>
+    </div>
   </div>
 
   <script src="script.js"></script>

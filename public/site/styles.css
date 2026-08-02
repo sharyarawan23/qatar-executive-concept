@@ -432,3 +432,23 @@ main{position:relative;z-index:1}
   .fleet-jet{height:104vh}
   .fleet-media-stage{height:64vh;min-height:470px}.fleet-floorplan-stage img{height:92%}
 }
+
+/* V11 transition, pacing and fleet media refinements */
+.about-section{padding-bottom:110px;background:linear-gradient(180deg,rgba(203,226,242,.02) 0%,rgba(211,231,244,.38) 22%,rgba(226,237,244,.84) 52%,#efeee9 82%,#f3efe8 100%),url('assets/hero-clouds-user.webp') center top/cover no-repeat}
+.about-section::after{background:linear-gradient(180deg,rgba(205,227,242,0) 0%,rgba(222,236,244,.22) 26%,rgba(238,240,239,.75) 68%,#f3efe8 100%)}
+.fleet-journey{height:205vh;margin-top:-2px;background:#f3efe8}
+.fleet-pin{background:linear-gradient(180deg,#f3efe8 0%,#f4f0e9 22%,#efe9df 100%)}
+.fleet-pin::before{content:"";position:absolute;inset:0 0 auto;height:24vh;background:linear-gradient(180deg,#f3efe8 0%,rgba(243,239,232,.82) 48%,transparent 100%);z-index:0;pointer-events:none}
+.fleet-kicker,.time-statement,.fly-word,.fleet-jet,.fleet-progress{position:absolute}
+.time-statement{z-index:8}
+.fly-word{z-index:4}
+.fleet-jet{height:min(138vh,1580px);z-index:7;filter:drop-shadow(0 28px 58px rgba(58,37,18,.22))}
+.fleet-showcase{margin-top:-2px;padding-top:100px;background:linear-gradient(180deg,#efe9df 0%,#f4f0e9 18%,#f2eee7 100%)}
+.fleet-media-stage{aspect-ratio:1/1;height:auto;min-height:0;max-height:none;background:#f4efe8}
+.fleet-media-stage>img,.fleet-media-stage.is-top>img{width:100%;height:100%;max-width:none;object-fit:contain;padding:0;filter:none}
+.fleet-media-stage:hover>img{transform:scale(1.006)}
+.fleet-floorplan-stage{width:100%;height:100%}
+.fleet-floorplan-stage img{width:100%;height:100%;object-fit:contain}
+.fleet-media-thumbs button{aspect-ratio:1/1;min-height:0;overflow:hidden;background:#eee7de}
+.fleet-media-thumbs img{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.fleet-journey{height:190vh}.fleet-showcase{padding-top:80px}.fleet-media-stage{aspect-ratio:1/1;height:auto;min-height:0}}

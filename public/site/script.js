@@ -82,16 +82,16 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      const timeIn=easeOut(seg(p,.01,.09));
-      const timeLift=ease(seg(p,.13,.23));
-      const timeOut=1-seg(p,.21,.30);
+      const timeIn=easeOut(seg(p,0,.045));
+      const timeLift=ease(seg(p,.08,.16));
+      const timeOut=1-seg(p,.15,.215);
       if(timeStatement){
         timeStatement.style.opacity=String(timeIn*timeOut);
         timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*22}vh)) scale(${1-timeLift*.035})`;
       }
 
-      const wordsIn=easeOut(seg(p,.25,.34));
-      const wordsOut=1-seg(p,.67,.80);
+      const wordsIn=easeOut(seg(p,.17,.235));
+      const wordsOut=1-seg(p,.50,.60);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsOut);
         flyLeft.style.transform=`translate3d(${(1-wordsIn)*-24}px,${(1-wordsIn)*28}px,0)`;
@@ -101,13 +101,13 @@
         flyRight.style.transform=`translate3d(${(1-wordsIn)*24}px,${(1-wordsIn)*28}px,0)`;
       }
 
-      const jetEnter=ease(seg(p,.32,.60));
-      const jetRise=ease(seg(p,.60,.97));
-      const jetFade=1-seg(p,.965,.998);
-      const jetY=(1-jetEnter)*122 - jetRise*132;
-      const jetScale=.50 + jetEnter*.94 - jetRise*.48;
+      const jetEnter=ease(seg(p,.22,.46));
+      const jetRise=ease(seg(p,.46,.96));
+      const jetFade=1-seg(p,.955,.995);
+      const jetY=(1-jetEnter)*126 - jetRise*154;
+      const jetScale=.52 + jetEnter*1.00 - jetRise*.40;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,.39,.45)*jetFade);
+        revealJet.style.opacity=String(seg(p,.25,.30)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;
@@ -128,44 +128,44 @@
       description:'The flagship experience combines ultra-long-range performance, five living areas and the largest purpose-built business-jet cabin.',
       range:'7,750 nm',mach:'0.93',passengers:'13',zones:'5',
       media:[
-        {src:'assets/g700-top-user.webp',label:'Top view',kind:'top',alt:'Gulfstream G700 full top view'},
-        {src:'assets/g700-exterior-user.webp',label:'Exterior',kind:'image',alt:'Gulfstream G700 exterior at sunset'},
-        {src:'assets/g700-interior-user.webp',label:'Interior',kind:'image',alt:'Gulfstream G700 luxury cabin'},
-        {src:'assets/g700-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Gulfstream G700 full aircraft cabin plan'}
-      ],viewer:'assets/g700-interior-user.webp',plan:'g700'
+        {src:'assets/g700-top-user-square.webp',label:'Top view',kind:'top',alt:'Gulfstream G700 full top view'},
+        {src:'assets/g700-exterior-user-square.webp',label:'Exterior',kind:'image',alt:'Gulfstream G700 exterior at sunset'},
+        {src:'assets/g700-interior-user-square.webp',label:'Interior',kind:'image',alt:'Gulfstream G700 luxury cabin'},
+        {src:'assets/g700-plan-user-square.webp',label:'Cabin plan',kind:'floorplan',alt:'Gulfstream G700 full aircraft cabin plan'}
+      ],viewer:'assets/g700-interior-user-square.webp',plan:'g700'
     },
     g650er:{
       eyebrow:'GULFSTREAM G650ER',short:'G650ER',title:'Supreme<br><em>comfort.</em>',
       description:'A global favourite for effortless ultra-long-range travel, combining industry-leading cabin technology with high-speed connectivity.',
       range:'7,500 nm',mach:'0.90',passengers:'13',zones:'4',
       media:[
-        {src:'assets/g650er-top-user.webp',label:'Top view',kind:'top',alt:'Gulfstream G650ER full top view'},
-        {src:'assets/g650er-exterior-user.webp',label:'Exterior',kind:'image',alt:'Gulfstream G650ER exterior at sunset'},
-        {src:'assets/g650er-interior-user.webp',label:'Interior',kind:'image',alt:'Gulfstream G650ER luxury cabin'},
-        {src:'assets/g650er-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Gulfstream G650ER full aircraft cabin plan'}
-      ],viewer:'assets/g650er-interior-user.webp',plan:'g650er'
+        {src:'assets/g650er-top-user-square.webp',label:'Top view',kind:'top',alt:'Gulfstream G650ER full top view'},
+        {src:'assets/g650er-exterior-user-square.webp',label:'Exterior',kind:'image',alt:'Gulfstream G650ER exterior at sunset'},
+        {src:'assets/g650er-interior-user-square.webp',label:'Interior',kind:'image',alt:'Gulfstream G650ER luxury cabin'},
+        {src:'assets/g650er-plan-user-square.webp',label:'Cabin plan',kind:'floorplan',alt:'Gulfstream G650ER full aircraft cabin plan'}
+      ],viewer:'assets/g650er-interior-user-square.webp',plan:'g650er'
     },
     global5000:{
       eyebrow:'BOMBARDIER GLOBAL 5000',short:'GLOBAL 5000',title:'Powerful<br><em>versatility.</em>',
       description:'One of the widest cabins in its class, with three distinct zones for business, dining, relaxation and rest.',
       range:'5,200 nm',mach:'0.89',passengers:'13',zones:'3',
       media:[
-        {src:'assets/global5000-top-user.webp',label:'Top view',kind:'top',alt:'Bombardier Global 5000 full top view'},
-        {src:'assets/global5000-exterior-user.webp',label:'Exterior',kind:'image',alt:'Bombardier Global 5000 exterior at sunset'},
-        {src:'assets/global5000-interior-user.webp',label:'Interior',kind:'image',alt:'Bombardier Global 5000 luxury cabin'},
-        {src:'assets/global5000-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Bombardier Global 5000 full aircraft cabin plan'}
-      ],viewer:'assets/global5000-interior-user.webp',plan:'global5000'
+        {src:'assets/global5000-top-user-square.webp',label:'Top view',kind:'top',alt:'Bombardier Global 5000 full top view'},
+        {src:'assets/global5000-exterior-user-square.webp',label:'Exterior',kind:'image',alt:'Bombardier Global 5000 exterior at sunset'},
+        {src:'assets/global5000-interior-user-square.webp',label:'Interior',kind:'image',alt:'Bombardier Global 5000 luxury cabin'},
+        {src:'assets/global5000-plan-user-square.webp',label:'Cabin plan',kind:'floorplan',alt:'Bombardier Global 5000 full aircraft cabin plan'}
+      ],viewer:'assets/global5000-interior-user-square.webp',plan:'global5000'
     },
     a319:{
       eyebrow:'AIRBUS A319CJ',short:'A319CJ',title:'Space<br><em>without limits.</em>',
       description:'Created for larger groups and family travel, with private bedroom, en-suite facilities, dining areas and generous living space.',
       range:'3,700 nm',mach:'0.82',passengers:'19',zones:'6',
       media:[
-        {src:'assets/a319-top-user.webp',label:'Top view',kind:'top',alt:'Airbus A319CJ full top view'},
-        {src:'assets/a319-exterior-user.webp',label:'Exterior',kind:'image',alt:'Airbus A319CJ exterior at sunset'},
-        {src:'assets/a319-interior-user.webp',label:'Interior',kind:'image',alt:'Airbus A319CJ luxury cabin'},
-        {src:'assets/a319-plan-user.webp',label:'Cabin plan',kind:'floorplan',alt:'Airbus A319CJ full aircraft cabin plan'}
-      ],viewer:'assets/a319-interior-user.webp',plan:'a319'
+        {src:'assets/a319-top-user-square.webp',label:'Top view',kind:'top',alt:'Airbus A319CJ full top view'},
+        {src:'assets/a319-exterior-user-square.webp',label:'Exterior',kind:'image',alt:'Airbus A319CJ exterior at sunset'},
+        {src:'assets/a319-interior-user-square.webp',label:'Interior',kind:'image',alt:'Airbus A319CJ luxury cabin'},
+        {src:'assets/a319-plan-user-square.webp',label:'Cabin plan',kind:'floorplan',alt:'Airbus A319CJ full aircraft cabin plan'}
+      ],viewer:'assets/a319-interior-user-square.webp',plan:'a319'
     }
   };
 

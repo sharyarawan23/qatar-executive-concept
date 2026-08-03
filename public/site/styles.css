@@ -893,3 +893,94 @@ main{position:relative;z-index:1}
   .membership-card img{width:96%;max-height:168px}
   .membership-card span{font-size:10px;letter-spacing:.18em}
 }
+
+
+/* =========================
+   V22 — FLAGSHIP WORD POSITION + HERO DISCOVER CUE
+   ========================= */
+.scroll-cue{
+  position:absolute;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:#f2ece8;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  z-index:12;
+}
+.scroll-cue-discover{
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(17,12,17,.14);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 26px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.08);
+  transition:transform .28s ease, background .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.scroll-cue-discover:hover{
+  transform:translateX(-50%) translateY(-3px);
+  background:rgba(17,12,17,.22);
+  border-color:rgba(255,255,255,.26);
+  box-shadow:0 16px 32px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.1);
+}
+.scroll-cue-mouse{
+  position:relative;
+  width:18px;
+  height:30px;
+  border:1px solid rgba(255,255,255,.58);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:6px;
+  flex:0 0 auto;
+}
+.scroll-cue-mouse i{
+  width:4px;
+  height:7px;
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  animation:scrollCueDot 1.5s ease-in-out infinite;
+}
+.scroll-cue-discover > span:last-of-type{white-space:nowrap}
+.scroll-cue-discover b{
+  font-size:14px;
+  font-weight:400;
+  line-height:1;
+  color:#f5eee9;
+  animation:scrollCueArrow 1.5s ease-in-out infinite;
+}
+@keyframes scrollCueDot{
+  0%{transform:translateY(0);opacity:1}
+  65%{transform:translateY(8px);opacity:.22}
+  100%{transform:translateY(0);opacity:1}
+}
+@keyframes scrollCueArrow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(3px)}
+}
+.fly-word-left{
+  left:14vw;
+  width:26vw;
+  text-align:left;
+}
+.fly-word-right{
+  right:3vw;
+}
+@media (max-width:1180px){
+  .fly-word-left{left:11vw;width:28vw}
+}
+@media (max-width:760px){
+  .scroll-cue{bottom:18px;gap:10px;font-size:9px;letter-spacing:.18em}
+  .scroll-cue-discover{padding:10px 14px}
+  .scroll-cue-mouse{width:16px;height:26px;padding-top:5px}
+  .scroll-cue-mouse i{width:3px;height:6px}
+  .scroll-cue-discover b{font-size:12px}
+  .fly-word-left{left:8vw;width:34vw}
+  .fly-word-right{right:3vw;width:49vw}
+}

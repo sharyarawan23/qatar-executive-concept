@@ -45,7 +45,11 @@
       const p=clamp(-r.top/Math.max(1,total));
 
       const shutterOpen=ease(seg(p,.01,.085));
-      if(windowShade) windowShade.style.transform=`translateY(${-shutterOpen*106}%)`;
+      if(windowShade){
+        // Retract the blind inside the frame instead of moving the whole glass-shaped layer.
+        windowShade.style.transform='none';
+        windowShade.style.clipPath=`inset(0 0 ${shutterOpen*100}% 0 round 0 0 42% 42%)`;
+      }
 
       const cloudZoom=ease(seg(p,.035,.40));
       if(cloudVideo){
@@ -84,7 +88,10 @@
 
       // Three-step cinematic sequence with earlier statement reveal:
       // 1) statement appears immediately, 2) Fly / Premium, 3) aircraft reveal.
-      const timeIn=easeOut(seg(p,.015,.165));
+      // Begin the statement while the section is still entering the viewport,
+      // so it starts near the viewer's pointer/centre instead of after a blank pause.
+      const timeLead=clamp((innerHeight*.58-r.top)/Math.max(1,total+innerHeight*.58));
+      const timeIn=easeOut(seg(timeLead,.0,.13));
       const timeOut=1-ease(seg(p,.28,.44));
       const timeLift=ease(seg(p,.28,.44));
       if(timeStatement){

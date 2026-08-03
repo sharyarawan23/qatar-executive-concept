@@ -1147,7 +1147,7 @@ main{position:relative;z-index:1}
    ========================= */
 .time-statement{
   top:52% !important;
-  opacity:0 !important;
+  opacity:0;
   will-change:transform,opacity !important;
 }
 .time-statement span,

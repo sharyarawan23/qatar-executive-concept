@@ -838,13 +838,13 @@ main{position:relative;z-index:1}
   gap:34px;
   width:max-content;
   padding:8px 0;
-  animation:membershipsFloat 40s linear infinite;
+  animation:membershipsFloat 42s linear infinite;
 }
 .membership-card{
   flex:0 0 auto;
-  width:min(430px,82vw);
-  min-height:270px;
-  padding:24px 24px 22px;
+  width:min(440px,82vw);
+  min-height:300px;
+  padding:18px 22px 20px;
   border-radius:34px;
   border:1px solid rgba(161,122,68,.18);
   background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(250,246,241,.92));
@@ -864,9 +864,9 @@ main{position:relative;z-index:1}
   border-color:rgba(81,26,49,.20);
 }
 .membership-card img{
-  width:92%;
+  width:96%;
   max-width:100%;
-  max-height:182px;
+  max-height:218px;
   height:auto;
   object-fit:contain;
   display:block;
@@ -888,8 +888,8 @@ main{position:relative;z-index:1}
   .memberships-copy::after{margin-top:20px}
   .memberships-head h2{font-size:clamp(42px,13vw,70px)}
   .memberships-head p{max-width:92%;font-size:14px;line-height:1.74}
-  .memberships-track{gap:24px;animation-duration:34s}
-  .membership-card{width:86vw;min-height:220px;padding:20px 18px}
-  .membership-card img{width:94%;max-height:140px}
+  .memberships-track{gap:24px;animation-duration:36s}
+  .membership-card{width:86vw;min-height:246px;padding:16px 16px 18px}
+  .membership-card img{width:96%;max-height:168px}
   .membership-card span{font-size:10px;letter-spacing:.18em}
 }

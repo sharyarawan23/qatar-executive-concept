@@ -82,12 +82,14 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      const timeIn=easeOut(seg(p,0,.045));
-      const timeLift=ease(seg(p,.08,.16));
-      const timeOut=1-seg(p,.15,.215);
+      // Keep the statement present as soon as the flagship section enters,
+      // then let it travel upward with the user's scroll instead of appearing late.
+      const timeIn=easeOut(seg(p,-.025,.008));
+      const timeLift=ease(seg(p,0,.155));
+      const timeOut=1-seg(p,.17,.245);
       if(timeStatement){
         timeStatement.style.opacity=String(timeIn*timeOut);
-        timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*22}vh)) scale(${1-timeLift*.035})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*24}vh)) scale(${1-timeLift*.035})`;
       }
 
       const wordsIn=easeOut(seg(p,.17,.235));

@@ -521,3 +521,44 @@ main{position:relative;z-index:1}
   .about-section::before{top:-12vh;height:28vh}
   .fly-word-left,.fly-word-right{font-size:clamp(58px,16vw,88px)}
 }
+
+/* V13 — true cloud hand-off + immediate flagship statement */
+.window-journey{z-index:3}
+.window-journey::after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-34vh;
+  height:78vh;
+  z-index:30;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(207,228,242,0) 0%,rgba(207,228,242,.08) 18%,rgba(207,228,242,.22) 50%,rgba(207,228,242,0) 100%),
+    url('assets/hero-clouds-user.webp') center 62%/cover no-repeat;
+  filter:blur(8px) saturate(1.04) contrast(1.02);
+  transform:scale(1.07);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 20%,#000 78%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,#000 20%,#000 78%,transparent 100%);
+}
+.about-section{
+  z-index:1;
+  overflow:visible;
+  margin-top:-24vh;
+  padding-top:58vh;
+  background:
+    linear-gradient(180deg,rgba(207,228,242,.02) 0%,rgba(211,231,244,.20) 20%,rgba(220,235,244,.64) 49%,#eef0ef 78%,#f3efe8 100%),
+    url('assets/hero-clouds-user.webp') center 62%/cover no-repeat;
+}
+.about-section::before{display:none!important}
+.about-section::after{z-index:1}
+.about-clouds{z-index:0;top:-10vh;bottom:42%;opacity:.48}
+.about-grid{z-index:3}
+
+/* The flagship statement is visible the moment the pinned section arrives. */
+.time-statement{opacity:1}
+
+@media(max-width:760px){
+  .window-journey::after{bottom:-24vh;height:58vh;filter:blur(6px);transform:scale(1.09)}
+  .about-section{margin-top:-16vh;padding-top:42vh}
+}

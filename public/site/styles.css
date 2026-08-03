@@ -1140,3 +1140,81 @@ main{position:relative;z-index:1}
   .experience-head::before,.experience-head::after{width:70px;}
   .experience-head h2{max-width:none;font-size:clamp(42px,12vw,66px) !important;}
 }
+
+
+/* =========================
+   V29 — flagship reveal + experience layout refinement
+   ========================= */
+.time-statement{
+  top:52% !important;
+  opacity:0 !important;
+  will-change:transform,opacity !important;
+}
+.time-statement span,
+.time-statement strong,
+.time-statement small{
+  opacity:1 !important;
+}
+
+.fly-word-left{
+  left:6vw !important;
+  width:29vw !important;
+  text-align:right !important;
+  color:#171318 !important;
+}
+.fly-word-right{
+  right:4.5vw !important;
+  width:35vw !important;
+  color:#171318 !important;
+}
+
+.experience-head{
+  display:grid !important;
+  grid-template-columns:minmax(220px,26vw) 1fr !important;
+  align-items:start !important;
+  column-gap:48px !important;
+  margin-bottom:74px !important;
+}
+.experience-head::before,
+.experience-head::after{
+  display:none !important;
+  content:none !important;
+}
+.experience-head > span{
+  display:block !important;
+  width:auto !important;
+  margin:10px 0 0 !important;
+  text-align:left !important;
+  justify-self:start !important;
+  align-self:start !important;
+}
+.experience-head h2{
+  margin:0 auto !important;
+  width:100% !important;
+  max-width:none !important;
+  text-align:center !important;
+  font-size:clamp(62px,6.5vw,108px) !important;
+  line-height:.9 !important;
+  letter-spacing:-.065em !important;
+}
+.experience-head h2 em{
+  display:block !important;
+  margin-top:.08em !important;
+  color:#511a31 !important;
+}
+
+@media (max-width:1180px){
+  .fly-word-left{left:5vw !important;width:31vw !important;}
+  .fly-word-right{right:3vw !important;width:40vw !important;}
+  .experience-head{grid-template-columns:minmax(180px,24vw) 1fr !important;column-gap:32px !important;}
+}
+@media (max-width:900px){
+  .experience-head{display:block !important;margin-bottom:58px !important;}
+  .experience-head > span{margin:0 0 18px !important;text-align:left !important;}
+  .experience-head h2{text-align:center !important;font-size:clamp(44px,11vw,72px) !important;}
+}
+@media (max-width:760px){
+  .time-statement{top:51.5% !important;}
+  .fly-word-left{left:4vw !important;width:34vw !important;}
+  .fly-word-right{right:3vw !important;width:44vw !important;}
+}

@@ -606,3 +606,99 @@ main{position:relative;z-index:1}
   .membership-card img{max-width:220px;max-height:98px}
   .footer-grid-enhanced{grid-template-columns:1fr}
 }
+
+/* =========================
+   V18 — MEMBERSHIPS REFINEMENT + FLAGSHIP CENTERING
+   ========================= */
+.time-statement{
+  left:50%;
+  top:50%;
+  width:min(1280px,92vw);
+  min-height:52vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:0 2vw;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+.time-statement::before,.time-statement::after{width:82px}
+.time-statement span{
+  margin:0;
+  max-width:18ch;
+  text-align:center;
+  font-size:clamp(42px,4.8vw,82px);
+}
+.time-statement strong{
+  margin:0;
+  max-width:11ch;
+  text-align:center;
+  font-size:clamp(86px,10.4vw,178px);
+  line-height:.86;
+}
+.time-statement small{
+  margin-top:20px;
+  max-width:44ch;
+  text-align:center;
+}
+
+.memberships-strip{
+  padding:54px 0 88px;
+}
+.memberships-head{
+  padding:0 0 42px;
+}
+.memberships-copy{
+  max-width:980px;
+}
+.memberships-head h2{
+  max-width:14ch;
+  font-size:clamp(40px,5vw,78px);
+  line-height:.94;
+  letter-spacing:-.065em;
+}
+.memberships-head h2 em{
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-weight:500;
+  color:#511a31;
+}
+.memberships-head p{
+  max-width:820px;
+  font-size:16px;
+  line-height:1.82;
+}
+.memberships-track{
+  gap:30px;
+  animation-duration:40s;
+}
+.membership-card{
+  width:min(420px,82vw);
+  min-height:250px;
+  padding:28px;
+  border-radius:34px;
+}
+.membership-card img{
+  width:100%;
+  max-width:340px;
+  max-height:170px;
+  object-fit:contain;
+}
+
+@media(max-width:760px){
+  .time-statement{
+    width:min(96vw,760px);
+    min-height:44vh;
+    padding:0 4vw;
+  }
+  .time-statement span{font-size:clamp(34px,7vw,52px)}
+  .time-statement strong{font-size:clamp(68px,14vw,104px)}
+  .time-statement small{font-size:10px;max-width:28ch}
+  .memberships-strip{padding:34px 0 56px}
+  .memberships-head{padding-bottom:26px}
+  .memberships-head h2{max-width:100%;font-size:clamp(34px,10vw,52px)}
+  .memberships-head p{font-size:14px;line-height:1.72}
+  .membership-card{width:86vw;min-height:210px;padding:24px}
+  .membership-card img{max-width:280px;max-height:144px}
+}

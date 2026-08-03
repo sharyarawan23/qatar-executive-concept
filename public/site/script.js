@@ -254,7 +254,7 @@
 
   const experienceData={
     pets:{image:'assets/pets-premium.png',caption:'Your companions, welcomed onboard.'},
-    crew:{image:'assets/crew-premium.png',caption:'Attentive service, delivered with discretion.'},
+    crew:{image:'assets/crew-uniform-premium.webp',caption:'Signature cabin crew, styled with warmth and discretion.'},
     wifi:{image:'assets/starlink-premium.png',caption:'Stay connected to what matters most.'},
     dining:{image:'assets/dining-premium.png',caption:'Dining shaped around your preferences.'}
   };

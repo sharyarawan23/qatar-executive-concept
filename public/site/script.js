@@ -46,9 +46,8 @@
 
       const shutterOpen=ease(seg(p,.01,.085));
       if(windowShade){
-        // Retract the blind inside the frame instead of moving the whole glass-shaped layer.
-        windowShade.style.transform='none';
-        windowShade.style.clipPath=`inset(0 0 ${shutterOpen*100}% 0 round 0 0 42% 42%)`;
+        windowShade.style.clipPath='none';
+        windowShade.style.transform=`translateY(${-shutterOpen*106}%)`;
       }
 
       const cloudZoom=ease(seg(p,.035,.40));
@@ -86,17 +85,17 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // Three-step cinematic sequence with earlier statement reveal:
-      // 1) statement appears immediately, 2) Fly / Premium, 3) aircraft reveal.
-      // Begin the statement while the section is still entering the viewport,
-      // so it starts near the viewer's pointer/centre instead of after a blank pause.
-      const timeLead=clamp((innerHeight*.58-r.top)/Math.max(1,total+innerHeight*.58));
-      const timeIn=easeOut(seg(timeLead,.0,.13));
-      const timeOut=1-ease(seg(p,.28,.44));
-      const timeLift=ease(seg(p,.28,.44));
+      // Three-step cinematic sequence:
+      // 1) statement enters smoothly from below a little earlier,
+      // 2) Fly / Premium lock in,
+      // 3) aircraft reveal with less dead scroll.
+      const timeIn=easeOut(seg(p,.06,.19));
+      const timeOut=1-ease(seg(p,.34,.47));
+      const timeLift=ease(seg(p,.34,.47));
       if(timeStatement){
+        const timeOffset=(1-timeIn)*12 - timeLift*8;
         timeStatement.style.opacity=String(timeIn*timeOut);
-        timeStatement.style.transform=`translate(-50%,calc(-50% + ${(1-timeIn)*10 + 2.5 - timeLift*8}vh)) scale(${0.985 + timeIn*.015 - timeLift*.02})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${0.985 + timeIn*.015 - timeLift*.01})`;
       }
 
       const wordsIn=easeOut(seg(p,.38,.54));
@@ -111,8 +110,8 @@
         flyRight.style.transform=`translate3d(${(1-wordsIn)*18}px,calc(${(1-wordsIn)*24}px + 7vh - ${wordsLift*42}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.44,.62));
-      const jetRise=ease(seg(p,.62,1));
+      const jetEnter=ease(seg(p,.42,.60));
+      const jetRise=ease(seg(p,.60,.96));
       const jetFade=1-seg(p,.998,1);
       const jetY=(1-jetEnter)*150 - jetRise*270;
       const jetScale=.44 + jetEnter*1.02 - jetRise*.18;

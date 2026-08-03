@@ -1012,3 +1012,39 @@ main{position:relative;z-index:1}
   .footer-social-text{font-size:12px;}
   .fleet-journey{height:154vh !important;}
 }
+
+
+/* =========================
+   V24 — flagship lowered + shorter cloud handoff
+   ========================= */
+.window-journey{height:162vh !important;}
+.window-journey::after{bottom:-28vh !important;height:60vh !important;}
+.about-section{margin-top:-20vh !important;padding-top:50vh !important;}
+.about-clouds{top:-8vh !important;bottom:46% !important;opacity:.42 !important;}
+
+.time-statement{top:56% !important;min-height:46vh !important;width:min(1180px,90vw) !important;}
+.time-statement span{max-width:16ch !important;}
+.time-statement strong{max-width:10.5ch !important;line-height:.84 !important;}
+.time-statement small{margin-top:16px !important;}
+.fly-word{top:58.5% !important;transition:transform .18s linear,opacity .18s linear;}
+.fly-word-left{left:11.5vw !important;width:24vw !important;}
+.fly-word-right{right:4.5vw !important;width:auto !important;}
+.fleet-jet{filter:drop-shadow(0 26px 54px rgba(0,0,0,.16)) !important;}
+
+@media (max-width:1180px){
+  .window-journey{height:154vh !important;}
+  .about-section{padding-top:46vh !important;}
+  .time-statement{top:55% !important;width:min(94vw,980px) !important;}
+  .fly-word{top:57.5% !important;}
+  .fly-word-left{left:8vw !important;width:28vw !important;}
+  .fly-word-right{right:3vw !important;}
+}
+@media (max-width:760px){
+  .window-journey{height:146vh !important;}
+  .window-journey::after{bottom:-18vh !important;height:42vh !important;}
+  .about-section{margin-top:-12vh !important;padding-top:36vh !important;}
+  .time-statement{top:55.5% !important;min-height:40vh !important;}
+  .fly-word{top:59% !important;}
+  .fly-word-left{left:7vw !important;width:34vw !important;}
+  .fly-word-right{right:3vw !important;width:48vw !important;}
+}

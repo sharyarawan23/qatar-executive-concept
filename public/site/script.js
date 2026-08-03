@@ -84,33 +84,33 @@
 
       // Keep the statement present as soon as the flagship section enters,
       // then let it travel upward with the user's scroll instead of appearing late.
-      const timeIn=easeOut(seg(p,-.03,.02));
-      const timeLift=ease(seg(p,.18,.98));
-      const timeFade=1-seg(p,.985,1);
+      const timeIn=easeOut(seg(p,.03,.11));
+      const timeLift=ease(seg(p,.28,.985));
+      const timeFade=1-seg(p,.992,1);
       if(timeStatement){
         timeStatement.style.opacity=String(timeIn*timeFade);
-        timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*46}vh)) scale(${1-timeLift*.04})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% + 6vh - ${timeLift*40}vh)) scale(${1-timeLift*.035})`;
       }
 
-      const wordsIn=easeOut(seg(p,.12,.22));
-      const wordsLift=ease(seg(p,.36,.985));
-      const wordsFade=1-seg(p,.988,1);
+      const wordsIn=easeOut(seg(p,.12,.24));
+      const wordsLift=ease(seg(p,.42,.99));
+      const wordsFade=1-seg(p,.993,1);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
-        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-24}px,calc(${(1-wordsIn)*28}px - ${wordsLift*42}vh),0)`;
+        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-18}px,calc(${(1-wordsIn)*34}px + 7vh - ${wordsLift*38}vh),0)`;
       }
       if(flyRight){
         flyRight.style.opacity=String(wordsIn*wordsFade);
-        flyRight.style.transform=`translate3d(${(1-wordsIn)*24}px,calc(${(1-wordsIn)*28}px - ${wordsLift*42}vh),0)`;
+        flyRight.style.transform=`translate3d(${(1-wordsIn)*18}px,calc(${(1-wordsIn)*34}px + 7vh - ${wordsLift*38}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.18,.42));
-      const jetRise=ease(seg(p,.42,1));
-      const jetFade=1-seg(p,.995,1);
-      const jetY=(1-jetEnter)*136 - jetRise*244;
-      const jetScale=.48 + jetEnter*.96 - jetRise*.18;
+      const jetEnter=ease(seg(p,.24,.50));
+      const jetRise=ease(seg(p,.50,1));
+      const jetFade=1-seg(p,.996,1);
+      const jetY=(1-jetEnter)*142 - jetRise*248;
+      const jetScale=.46 + jetEnter*.98 - jetRise*.16;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,.18,.25)*jetFade);
+        revealJet.style.opacity=String(seg(p,.24,.31)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;

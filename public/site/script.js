@@ -82,35 +82,35 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // Keep the statement present as soon as the flagship section enters,
-      // then let it travel upward with the user's scroll instead of appearing late.
-      const timeIn=easeOut(seg(p,.03,.11));
-      const timeLift=ease(seg(p,.28,.985));
-      const timeFade=1-seg(p,.992,1);
+      // Three-step cinematic sequence:
+      // 1) statement only, 2) Fly / Premium only, 3) aircraft reveal over text.
+      const timeIn=easeOut(seg(p,.02,.10));
+      const timeOut=1-ease(seg(p,.24,.36));
+      const timeLift=ease(seg(p,.24,.36));
       if(timeStatement){
-        timeStatement.style.opacity=String(timeIn*timeFade);
-        timeStatement.style.transform=`translate(-50%,calc(-50% + 6vh - ${timeLift*40}vh)) scale(${1-timeLift*.035})`;
+        timeStatement.style.opacity=String(timeIn*timeOut);
+        timeStatement.style.transform=`translate(-50%,calc(-50% + 4vh - ${timeLift*10}vh)) scale(${1-timeLift*.025})`;
       }
 
-      const wordsIn=easeOut(seg(p,.12,.24));
-      const wordsLift=ease(seg(p,.42,.99));
-      const wordsFade=1-seg(p,.993,1);
+      const wordsIn=easeOut(seg(p,.34,.46));
+      const wordsLift=ease(seg(p,.70,.99));
+      const wordsFade=1-seg(p,.995,1);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
-        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-18}px,calc(${(1-wordsIn)*34}px + 7vh - ${wordsLift*38}vh),0)`;
+        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-22}px,calc(${(1-wordsIn)*30}px + 7vh - ${wordsLift*42}vh),0)`;
       }
       if(flyRight){
         flyRight.style.opacity=String(wordsIn*wordsFade);
-        flyRight.style.transform=`translate3d(${(1-wordsIn)*18}px,calc(${(1-wordsIn)*34}px + 7vh - ${wordsLift*38}vh),0)`;
+        flyRight.style.transform=`translate3d(${(1-wordsIn)*22}px,calc(${(1-wordsIn)*30}px + 7vh - ${wordsLift*42}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.24,.50));
-      const jetRise=ease(seg(p,.50,1));
-      const jetFade=1-seg(p,.996,1);
-      const jetY=(1-jetEnter)*142 - jetRise*248;
-      const jetScale=.46 + jetEnter*.98 - jetRise*.16;
+      const jetEnter=ease(seg(p,.50,.68));
+      const jetRise=ease(seg(p,.68,1));
+      const jetFade=1-seg(p,.998,1);
+      const jetY=(1-jetEnter)*150 - jetRise*270;
+      const jetScale=.44 + jetEnter*1.02 - jetRise*.18;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,.24,.31)*jetFade);
+        revealJet.style.opacity=String(seg(p,.50,.58)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;

@@ -1048,3 +1048,29 @@ main{position:relative;z-index:1}
   .fly-word-left{left:7vw !important;width:34vw !important;}
   .fly-word-right{right:3vw !important;width:48vw !important;}
 }
+
+
+/* =========================
+   V25 — separated flagship sequence
+   ========================= */
+.fleet-journey{height:240vh !important;}
+.time-statement{top:50.5% !important;min-height:44vh !important;}
+.fly-word{top:58% !important;}
+.fly-word-left{left:4vw !important;width:24vw !important;}
+.fly-word-right{right:3.5vw !important;width:34vw !important;}
+.fleet-jet{top:53% !important;height:min(136vh,1540px) !important;}
+
+@media (max-width:1180px){
+  .fleet-journey{height:230vh !important;}
+  .fly-word{top:58% !important;}
+  .fly-word-left{left:4vw !important;width:28vw !important;}
+  .fly-word-right{right:3vw !important;width:40vw !important;}
+}
+@media (max-width:760px){
+  .fleet-journey{height:210vh !important;}
+  .time-statement{top:50% !important;min-height:38vh !important;}
+  .fly-word{top:60% !important;}
+  .fly-word-left{left:3vw !important;width:34vw !important;}
+  .fly-word-right{right:3vw !important;width:46vw !important;}
+  .fleet-jet{height:108vh !important;}
+}

@@ -84,9 +84,9 @@
 
       // Three-step cinematic sequence with earlier statement reveal:
       // 1) statement appears immediately, 2) Fly / Premium, 3) aircraft reveal.
-      const timeIn=easeOut(seg(p,0,.055));
-      const timeOut=1-ease(seg(p,.18,.30));
-      const timeLift=ease(seg(p,.18,.30));
+      const timeIn=easeOut(seg(p,0,.10));
+      const timeOut=1-ease(seg(p,.22,.38));
+      const timeLift=ease(seg(p,.22,.38));
       if(timeStatement){
         timeStatement.style.opacity=String(timeIn*timeOut);
         timeStatement.style.transform=`translate(-50%,calc(-50% + 2.5vh - ${timeLift*8}vh)) scale(${1-timeLift*.02})`;

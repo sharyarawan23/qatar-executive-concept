@@ -1074,3 +1074,69 @@ main{position:relative;z-index:1}
   .fly-word-right{right:3vw !important;width:46vw !important;}
   .fleet-jet{height:108vh !important;}
 }
+
+
+/* =========================
+   V28 — flagship timing + fly position + centered experience heading
+   ========================= */
+.time-statement{
+  top:52.5% !important;
+}
+.fly-word-left{
+  left:8.5vw !important;
+  width:34vw !important;
+  text-align:right !important;
+  color:#5a1933 !important;
+}
+.fly-word-right{
+  right:4.5vw !important;
+  width:31vw !important;
+}
+
+.experience-head{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  margin-bottom:74px !important;
+}
+.experience-head::before,
+.experience-head::after{
+  content:"";
+  display:block;
+  width:92px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(170,125,65,.82),transparent);
+}
+.experience-head::before{margin:0 auto 22px;}
+.experience-head::after{margin:24px auto 0;}
+.experience-head > span{
+  display:block !important;
+  width:100%;
+  margin:0 0 18px !important;
+  text-align:center !important;
+}
+.experience-head h2{
+  margin:0 auto !important;
+  max-width:7.4ch;
+  text-align:center !important;
+  font-size:clamp(60px,6.2vw,108px) !important;
+  line-height:.92 !important;
+}
+.experience-head h2 em{
+  color:#511a31;
+}
+
+@media (max-width:1180px){
+  .fly-word-left{left:6.5vw !important;width:38vw !important;}
+  .fly-word-right{right:3.5vw !important;width:35vw !important;}
+}
+@media (max-width:760px){
+  .time-statement{top:51.5% !important;}
+  .fly-word-left{left:4vw !important;width:40vw !important;}
+  .fly-word-right{right:3vw !important;width:42vw !important;}
+  .experience-head{margin-bottom:52px !important;}
+  .experience-head::before,.experience-head::after{width:70px;}
+  .experience-head h2{max-width:none;font-size:clamp(42px,12vw,66px) !important;}
+}

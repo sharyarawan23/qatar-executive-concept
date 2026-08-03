@@ -89,8 +89,8 @@
       // 1) statement enters smoothly from below a little earlier,
       // 2) Fly / Premium lock in,
       // 3) aircraft reveal with less dead scroll.
-      const timeIn=easeOut(seg(p,.06,.19));
-      const timeOut=1-ease(seg(p,.34,.47));
+      const timeIn=easeOut(seg(p,.02,.14));
+      const timeOut=1-ease(seg(p,.33,.46));
       const timeLift=ease(seg(p,.34,.47));
       if(timeStatement){
         const timeOffset=(1-timeIn)*12 - timeLift*8;

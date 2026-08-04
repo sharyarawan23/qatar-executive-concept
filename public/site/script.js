@@ -44,40 +44,49 @@
       const total=hero.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      const shutterOpen=ease(seg(p,.01,.085));
+      /* V57 hero journey: keep the premium screen pinned, open the shade,
+         then move the camera straight through the window. The window never
+         slides upward; it only scales from its own centre. */
+      const shutterOpen=ease(seg(p,.025,.18));
       if(windowShade){
         windowShade.style.clipPath='none';
-        windowShade.style.transform=`translateY(${-shutterOpen*106}%)`;
+        windowShade.style.transform=`translate3d(0,${-shutterOpen*108}%,0)`;
       }
 
-      const cloudZoom=ease(seg(p,.035,.40));
+      /* A restrained push inside the glass makes the clouds feel closer while
+         the physical frame grows past the viewport. */
+      const cloudZoom=easeOut(seg(p,.14,.80));
       if(cloudVideo){
-        cloudVideo.style.transform=`scale(${1+cloudZoom*.72}) translate3d(${-cloudZoom*2.5}%,${-cloudZoom*22}%,0)`;
+        cloudVideo.style.transform=`translate3d(0,${-cloudZoom*4}%,0) scale(${1+cloudZoom*.42})`;
       }
 
-      const fieldIn=easeOut(seg(p,.16,.43));
+      /* Cross-fade to the full-screen cloud field only once the window opening
+         has already covered the viewport, preventing any blue or black gap. */
+      const fieldIn=easeOut(seg(p,.66,.88));
       if(heroCloudField){
         heroCloudField.style.opacity=String(fieldIn);
-        heroCloudField.style.transform=`translate3d(0,${-fieldIn*8}%,0) scale(${1.13-fieldIn*.08})`;
+        heroCloudField.style.transform=`translate3d(0,0,0) scale(${1.055-fieldIn*.035})`;
       }
 
-      const windowZoom=ease(seg(p,.05,.43));
-      const windowFade=1-seg(p,.41,.57);
+      const isHeroMobile=matchMedia('(max-width:760px)').matches;
+      const windowZoom=ease(seg(p,.14,.84));
+      const maxWindowScale=isHeroMobile?6.35:4.85;
+      const windowFade=1-ease(seg(p,.82,.96));
       if(windowObject){
-        windowObject.style.transform=`translate(-50%,calc(-50% - ${windowZoom*10}vh)) scale(${1+windowZoom*3.7})`;
+        windowObject.style.transform=`translate(-50%,-50%) scale(${1+windowZoom*(maxWindowScale-1)})`;
         windowObject.style.opacity=String(windowFade);
       }
 
-      const copyOut=1-seg(p,.018,.13);
+      const copyOut=1-ease(seg(p,.035,.19));
       if(heroCopyLeft){
         heroCopyLeft.style.opacity=String(copyOut);
-        heroCopyLeft.style.transform=`translateY(${-seg(p,.025,.14)*42}px)`;
+        heroCopyLeft.style.transform='translate3d(0,0,0)';
       }
       if(heroCopyRight){
         heroCopyRight.style.opacity=String(copyOut);
-        heroCopyRight.style.transform=`translateY(${seg(p,.025,.14)*42}px)`;
+        heroCopyRight.style.transform='translate3d(0,0,0)';
       }
-      if(scrollCue) scrollCue.style.opacity=String(1-seg(p,.01,.075));
+      if(scrollCue) scrollCue.style.opacity=String(1-ease(seg(p,.02,.13)));
     }
 
     if(fleetJourney){

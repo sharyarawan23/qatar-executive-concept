@@ -2520,3 +2520,115 @@ main{position:relative;z-index:1}
   .hero-copy p{font-size:8px !important;}
   .scroll-cue-discover{bottom:1.5svh !important;}
 }
+
+
+/* =========================
+   V57 — pinned window-to-cloud camera transition
+   The grey/purple hero remains the complete screen while the camera zooms
+   through the closed aircraft window. Scrolling continues only after clouds
+   fill the viewport.
+   ========================= */
+.window-journey{
+  height:245vh !important;
+  overflow:clip !important;
+  isolation:isolate !important;
+  background:
+    radial-gradient(circle at 18% 38%,rgba(198,154,97,.42),transparent 34%),
+    radial-gradient(circle at 84% 48%,rgba(104,25,57,.52),transparent 39%),
+    linear-gradient(105deg,#100d12 0%,#3a291f 35%,#17131a 66%,#351522 100%) !important;
+}
+.window-pin{
+  position:sticky !important;
+  top:0 !important;
+  height:100vh !important;
+  min-height:100vh !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  background:
+    radial-gradient(circle at 18% 38%,rgba(198,154,97,.42),transparent 34%),
+    radial-gradient(circle at 84% 48%,rgba(104,25,57,.52),transparent 39%),
+    linear-gradient(105deg,#100d12 0%,#3a291f 35%,#17131a 66%,#351522 100%) !important;
+}
+.hero-window{
+  transform-origin:50% 50% !important;
+  will-change:transform,opacity !important;
+}
+.hero-cloud-field{
+  inset:-5% !important;
+  z-index:7 !important;
+  opacity:0;
+  transform:translate3d(0,0,0) scale(1.055);
+  will-change:transform,opacity !important;
+  background:#cfe4f2 !important;
+}
+.hero-cloud-field::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.16),transparent 28%,rgba(205,226,240,.08) 72%,rgba(205,226,240,.28));
+}
+.hero-copy,.scroll-cue-discover{will-change:opacity !important;}
+
+/* No separate blue panel is allowed below the window. The full-screen cloud
+   field hands directly into the cloud-led About section. */
+.window-journey::after{display:none !important;content:none !important;}
+.about-section{
+  margin-top:0 !important;
+  padding-top:34vh !important;
+  background:
+    linear-gradient(180deg,rgba(207,228,242,.12) 0%,rgba(220,235,244,.60) 26%,rgba(238,242,241,.94) 66%,#f3efe8 100%),
+    url('assets/hero-clouds-user.webp') center top/cover no-repeat !important;
+  background-color:#d7e8f3 !important;
+}
+
+@media (max-width:760px){
+  .window-journey{
+    height:225svh !important;
+    overflow:clip !important;
+    background:
+      radial-gradient(circle at 18% 36%,rgba(198,154,97,.40),transparent 38%),
+      radial-gradient(circle at 86% 46%,rgba(104,25,57,.52),transparent 42%),
+      linear-gradient(105deg,#100d12 0%,#3a291f 35%,#17131a 66%,#351522 100%) !important;
+  }
+  .window-pin{
+    height:100svh !important;
+    min-height:100svh !important;
+    background:
+      radial-gradient(circle at 18% 36%,rgba(198,154,97,.40),transparent 38%),
+      radial-gradient(circle at 86% 46%,rgba(104,25,57,.52),transparent 42%),
+      linear-gradient(105deg,#100d12 0%,#3a291f 35%,#17131a 66%,#351522 100%) !important;
+  }
+  .hero-window{
+    top:52.5% !important;
+    width:54vw !important;
+    max-width:360px !important;
+    transform-origin:50% 50% !important;
+  }
+  .hero-cloud-field{
+    inset:-7% !important;
+    z-index:14 !important;
+  }
+  .hero-window{z-index:13 !important;}
+  .hero-copy-left,.hero-copy-right,.scroll-cue-discover{z-index:15 !important;}
+  .about-section{
+    margin-top:0 !important;
+    padding:30svh 0 94px !important;
+    background-position:center top !important;
+  }
+}
+
+@media (max-width:430px){
+  .window-journey{height:220svh !important;}
+  .hero-window{width:55vw !important;}
+  .about-section{padding-top:28svh !important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .window-journey{height:100vh !important;}
+  .window-pin{position:relative !important;}
+  .hero-shutter{transform:translate3d(0,-108%,0) !important;}
+  .hero-cloud-field{opacity:1 !important;transform:none !important;}
+  .hero-window{opacity:0 !important;}
+}

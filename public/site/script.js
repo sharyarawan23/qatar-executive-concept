@@ -292,7 +292,7 @@
   const viewer=$('#viewer360');
   const open360=()=>{viewer?.classList.add('is-open');viewer?.setAttribute('aria-hidden','false');document.body.classList.add('is-locked')};
   const close360=()=>{viewer?.classList.remove('is-open');viewer?.setAttribute('aria-hidden','true');document.body.classList.remove('is-locked')};
-  $('#open360')?.addEventListener('click',open360);
+  $$('#open360, [data-open360]').forEach(btn=>btn.addEventListener('click',open360));
   $$('[data-close360]').forEach(btn=>btn.addEventListener('click',close360));
   const scene=$('#viewer360Scene');
   const pan=$('#viewer360Pan');

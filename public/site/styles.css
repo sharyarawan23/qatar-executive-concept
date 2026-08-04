@@ -1996,3 +1996,120 @@ main{position:relative;z-index:1}
   .time-statement{top:41.5% !important;}
   .fly-word{font-size:clamp(40px,12vw,64px) !important;}
 }
+
+/* =========================
+   V51 — mobile sequence repair
+   ========================= */
+@media (max-width:760px){
+  /* Keep the hero elegant at the top, but make the lower half sky-based so
+     the cloud transition never exposes the dark hero background. */
+  .window-journey{
+    height:148svh !important;
+    background:
+      linear-gradient(180deg,
+        #120f15 0%,
+        #221920 18%,
+        #6e8090 34%,
+        #b7d1e5 48%,
+        #cfe4f2 66%,
+        #d9e9f3 100%) !important;
+  }
+  .window-journey::after{
+    left:-10% !important;
+    right:-10% !important;
+    bottom:-16svh !important;
+    height:52svh !important;
+    filter:blur(6px) saturate(1.02) !important;
+    transform:scale(1.08) !important;
+    background:
+      linear-gradient(180deg,
+        rgba(193,219,237,0) 0%,
+        rgba(200,225,241,.28) 18%,
+        rgba(212,231,243,.66) 48%,
+        rgba(224,237,245,.96) 78%,
+        #dfeaf2 100%),
+      url('assets/hero-clouds-user.webp') center 64%/cover no-repeat !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+  .hero-cloud-field,
+  .hero-clouds{background-color:#cfe4f2 !important;}
+
+  /* ABOUT — move the cloud handoff behind the content and remove the visible break. */
+  .about-section{
+    margin-top:-14svh !important;
+    padding:14svh 0 92px !important;
+    background:
+      linear-gradient(180deg,
+        rgba(207,228,242,.96) 0%,
+        rgba(221,236,244,.94) 24%,
+        rgba(239,242,241,.96) 58%,
+        #f3efe8 100%),
+      url('assets/hero-clouds-user.webp') center -4vh/cover no-repeat !important;
+    background-color:#d7e8f3 !important;
+  }
+  .about-section::after{
+    background:linear-gradient(180deg,
+      rgba(214,231,242,0) 0%,
+      rgba(227,238,244,.22) 26%,
+      rgba(243,239,232,.86) 74%,
+      #f3efe8 100%) !important;
+  }
+  .about-clouds{
+    top:-6svh !important;
+    height:18svh !important;
+    opacity:.18 !important;
+  }
+
+  /* FLAGSHIP — bring the sequence in sooner and remove the blank zone after the jet. */
+  .fleet-journey{
+    height:146svh !important;
+    margin-top:-1px !important;
+    overflow:hidden !important;
+    background:#f3efe8 !important;
+  }
+  .fleet-pin{height:100svh !important;}
+  .fleet-kicker{
+    top:calc(var(--header-h) + 16px) !important;
+    left:5vw !important;
+  }
+  .time-statement{
+    top:39% !important;
+    width:min(92vw,560px) !important;
+    min-height:0 !important;
+    padding:0 4vw !important;
+  }
+  .time-statement span{font-size:clamp(32px,9vw,46px) !important;}
+  .time-statement strong{font-size:clamp(58px,15vw,90px) !important;line-height:.84 !important;}
+  .time-statement small{margin-top:12px !important;font-size:9px !important;letter-spacing:.14em !important;}
+  .fly-word{
+    top:47.5% !important;
+    font-size:clamp(48px,13vw,74px) !important;
+  }
+  .fly-word-left{left:7vw !important;width:auto !important;}
+  .fly-word-right{right:6vw !important;width:auto !important;}
+  .fleet-jet{
+    top:53% !important;
+    width:88vw !important;
+    max-width:570px !important;
+    height:auto !important;
+  }
+  .fleet-progress{bottom:7svh !important;}
+  .fleet-showcase{
+    position:relative !important;
+    z-index:9 !important;
+    margin-top:-34svh !important;
+    padding-top:18px !important;
+    background:linear-gradient(180deg,#f3efe8 0%,#f4f0e9 18%,#f3efe8 100%) !important;
+  }
+}
+
+@media (max-width:420px){
+  .window-journey{height:144svh !important;}
+  .window-journey::after{bottom:-14svh !important;height:48svh !important;}
+  .about-section{margin-top:-12svh !important;padding-top:13svh !important;}
+  .fleet-journey{height:140svh !important;}
+  .time-statement{top:38% !important;}
+  .fly-word{font-size:clamp(44px,12vw,66px) !important;}
+  .fleet-showcase{margin-top:-30svh !important;}
+}

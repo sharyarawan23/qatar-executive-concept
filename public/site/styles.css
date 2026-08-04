@@ -1624,3 +1624,213 @@ main{position:relative;z-index:1}
   .fleet-journey{height:170vh !important;}
   .fleet-showcase{padding-top:28px !important;}
 }
+
+/* =========================
+   V46 — mobile polish, cinematic handoff and inline experience media
+   ========================= */
+.experience-inline-media{display:none;margin:0}
+
+/* Keep the aircraft sequence cinematic while allowing the Fleet section to
+   rise with the departing tail instead of leaving an empty pinned frame. */
+.fleet-journey{height:188vh !important}
+.fleet-showcase{
+  position:relative;
+  z-index:6;
+  margin-top:-22vh !important;
+  padding-top:42px !important;
+}
+
+@media(max-width:1180px){
+  .fleet-journey{height:178vh !important}
+  .fleet-showcase{margin-top:-20vh !important;padding-top:34px !important}
+}
+
+@media(max-width:760px){
+  /* HERO — separate the upper copy from the window frame on narrow screens. */
+  .window-journey{height:142svh !important}
+  .window-pin{height:100svh}
+  .hero-window{
+    width:72vw !important;
+    max-width:390px;
+    top:54% !important;
+  }
+  .hero-copy-left{
+    left:5vw !important;
+    top:16.5svh !important;
+    max-width:62vw !important;
+  }
+  .hero-copy-right{
+    right:5vw !important;
+    top:auto !important;
+    bottom:2.5svh !important;
+    max-width:76vw !important;
+  }
+  .hero-copy h1,.hero-copy h2{
+    margin-top:14px !important;
+    font-size:clamp(38px,10.5vw,46px) !important;
+    line-height:.91 !important;
+  }
+  .hero-copy p{font-size:9px !important;line-height:1.55 !important}
+  .scroll-cue{bottom:12px !important}
+
+  /* ABOUT — remove the inherited desktop side column that forced all copy
+     into the right half of the phone screen. */
+  .about-section{padding:7vh 0 88px !important}
+  .about-grid{
+    display:block !important;
+    grid-template-columns:1fr !important;
+    width:min(90vw,620px) !important;
+  }
+  .about-section .section-label{
+    display:block !important;
+    margin:0 0 30px !important;
+    text-align:left !important;
+  }
+  .about-copy{width:100% !important;min-width:0 !important}
+  .about-lead{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    text-align:left !important;
+    font-size:clamp(40px,11vw,56px) !important;
+    line-height:.93 !important;
+    letter-spacing:-.055em !important;
+  }
+  .about-lead span,
+  .about-lead em,
+  .about-lead strong{
+    display:block !important;
+    max-width:100% !important;
+    margin:0 !important;
+    transform:none !important;
+    text-align:left !important;
+  }
+  .about-lead em,.about-lead strong{margin-top:.03em !important}
+  .about-bottom{
+    display:block !important;
+    width:100% !important;
+    margin-top:42px !important;
+  }
+  .about-bottom p{
+    width:100% !important;
+    max-width:none !important;
+    font-size:16px !important;
+    line-height:1.68 !important;
+  }
+  .about-bottom span{
+    display:block !important;
+    width:100% !important;
+    margin-top:28px !important;
+    font-size:10px !important;
+    line-height:1.6 !important;
+  }
+
+  /* FLAGSHIP — larger words on mobile; the tail leaves at section end while
+     the next section has already begun to enter. */
+  .fleet-journey{height:164svh !important}
+  .fleet-pin{height:100svh}
+  .fleet-kicker{top:calc(var(--header-h) + 26px) !important}
+  .time-statement{
+    top:49.5% !important;
+    width:92vw !important;
+    min-height:0 !important;
+  }
+  .time-statement span{font-size:clamp(34px,9vw,44px) !important}
+  .time-statement strong{font-size:clamp(62px,16vw,82px) !important}
+  .time-statement small{font-size:9px !important;margin-top:16px !important}
+  .fly-word{
+    top:56.5% !important;
+    font-size:clamp(72px,18vw,96px) !important;
+    line-height:.82 !important;
+  }
+  .fly-word-left{
+    left:2.5vw !important;
+    width:38vw !important;
+    text-align:right !important;
+  }
+  .fly-word-right{
+    right:2vw !important;
+    width:51vw !important;
+    text-align:right !important;
+  }
+  .fleet-jet{top:52% !important;height:104svh !important}
+  .fleet-showcase{
+    margin-top:-22svh !important;
+    padding-top:24px !important;
+  }
+  .fleet-showcase-head{padding-top:0 !important}
+
+  /* EXPERIENCE — on phones the selected photograph belongs inside the open
+     accordion panel instead of sitting after all four services. */
+  .experience{padding:82px 0 92px !important}
+  .experience-feature{
+    display:block !important;
+    grid-template-columns:1fr !important;
+    min-height:0 !important;
+  }
+  .experience-accordion{padding-top:0 !important}
+  .experience-media{display:none !important}
+  .experience-item>div{
+    display:block !important;
+    grid-template-rows:none !important;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .62s cubic-bezier(.22,.7,.18,1) !important;
+  }
+  .experience-item.is-open>div{max-height:920px}
+  .experience-item>div>p{
+    overflow:visible !important;
+    padding:0 0 24px !important;
+    font-size:15px !important;
+    line-height:1.72 !important;
+  }
+  .experience-inline-media{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    margin:0 0 30px;
+    border-radius:5px;
+    background:#e7ded3;
+  }
+  .experience-inline-media img{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+  }
+  .experience-inline-media figcaption{
+    position:absolute;
+    left:14px;
+    right:14px;
+    bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 14px;
+    background:rgba(18,13,17,.84);
+    color:#fff;
+    backdrop-filter:blur(10px);
+  }
+  .experience-inline-media figcaption span{
+    color:var(--gold-soft);
+    font-size:9px;
+    letter-spacing:.14em;
+  }
+  .experience-inline-media figcaption p{
+    margin:0 !important;
+    padding:0 !important;
+    color:#fff !important;
+    font-family:"Playfair Display",serif;
+    font-size:17px !important;
+    line-height:1.15 !important;
+  }
+}
+
+@media(max-width:430px){
+  .hero-window{width:74vw !important}
+  .hero-copy-left{top:17svh !important}
+  .hero-copy-right{bottom:2svh !important}
+  .fly-word{font-size:clamp(68px,18vw,82px) !important}
+  .fleet-showcase{margin-top:-20svh !important}
+}

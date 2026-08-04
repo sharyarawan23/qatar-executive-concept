@@ -85,36 +85,42 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // V45 — earlier, longer time statement and a much slower cinematic aircraft pass.
-      const timeP=clamp((innerHeight*.18-r.top)/Math.max(1,total+innerHeight*.18));
-      const timeIn=easeOut(seg(timeP,.00,.07));
-      const timeOut=1-ease(seg(timeP,.40,.52));
-      const timeLift=ease(seg(timeP,.42,.54));
+      // V46 — clean three-beat sequence: time statement, Fly Premium, then the aircraft.
+      // The aircraft tail exits only at the very end, so the following Fleet section can rise with it.
+      const isMobile=matchMedia('(max-width:760px)').matches;
+      const timeIn=easeOut(seg(p,.015,.115));
+      const timeOut=1-ease(seg(p,.34,.46));
+      const timeLift=ease(seg(p,.36,.48));
       if(timeStatement){
-        const timeOffset=(1-timeIn)*10 - timeLift*10;
+        const timeOffset=(1-timeIn)*9-timeLift*9;
         timeStatement.style.opacity=String(timeIn*timeOut);
-        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${0.988 + timeIn*.012 - timeLift*.006})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${.992+timeIn*.008-timeLift*.004})`;
       }
 
-      const wordsIn=easeOut(seg(p,.48,.60));
-      const wordsLift=ease(seg(p,.72,.96));
-      const wordsFade=1-seg(p,.95,.998);
+      const wordsIn=easeOut(seg(p,.43,.55));
+      const wordsLift=ease(seg(p,.69,1));
+      const wordsFade=1-seg(p,.985,1);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
-        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-8}px,calc(${(1-wordsIn)*14}px + 7vh - ${wordsLift*34}vh),0)`;
+        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-10}px,calc(${(1-wordsIn)*15}px + 5vh - ${wordsLift*48}vh),0)`;
       }
       if(flyRight){
         flyRight.style.opacity=String(wordsIn*wordsFade);
-        flyRight.style.transform=`translate3d(${(1-wordsIn)*8}px,calc(${(1-wordsIn)*14}px + 7vh - ${wordsLift*34}vh),0)`;
+        flyRight.style.transform=`translate3d(${(1-wordsIn)*10}px,calc(${(1-wordsIn)*15}px + 5vh - ${wordsLift*48}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.57,.75));
-      const jetRise=ease(seg(p,.75,.995));
-      const jetFade=1-seg(p,.988,1);
-      const jetY=(1-jetEnter)*126 - jetRise*246;
-      const jetScale=.46 + jetEnter*.90 - jetRise*.13;
+      const jetEnter=ease(seg(p,.50,.72));
+      const jetRise=ease(seg(p,.72,1));
+      const jetFade=1-seg(p,.997,1);
+      const startY=isMobile?112:118;
+      const exitY=isMobile?138:145;
+      const jetY=(1-jetEnter)*startY-jetRise*exitY;
+      const baseScale=isMobile?.52:.47;
+      const enterScale=isMobile?.76:.84;
+      const riseScale=isMobile?.05:.08;
+      const jetScale=baseScale+jetEnter*enterScale-jetRise*riseScale;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,.31,.39)*jetFade);
+        revealJet.style.opacity=String(seg(p,.46,.53)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;

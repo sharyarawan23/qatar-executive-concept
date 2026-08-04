@@ -1403,3 +1403,68 @@ main{position:relative;z-index:1}
   .about-section{padding:8vh 0 100px !important; background-position:center 12% !important;}
   .about-clouds{top:-8vh !important;bottom:80% !important;opacity:.12 !important;}
 }
+
+
+/* =========================
+   V37 — remove remaining about-text cloud overlap
+   ========================= */
+.about-section{
+  margin-top:-2vh !important;
+  padding:8vh 0 118px !important;
+  background:
+    linear-gradient(180deg,
+      rgba(244,247,249,.98) 0%,
+      rgba(244,247,249,.96) 18%,
+      rgba(241,244,246,.94) 34%,
+      rgba(238,241,241,.95) 54%,
+      #f3efe8 100%),
+    url('assets/hero-clouds-user.webp') center -120px/cover no-repeat !important;
+}
+.about-section::after{
+  z-index:1 !important;
+  background:linear-gradient(180deg,
+    rgba(245,247,249,.92) 0%,
+    rgba(243,246,248,.84) 20%,
+    rgba(240,243,244,.62) 38%,
+    rgba(240,241,239,.86) 68%,
+    #f3efe8 100%) !important;
+}
+.about-clouds{
+  z-index:0 !important;
+  top:-14vh !important;
+  bottom:84% !important;
+  opacity:.06 !important;
+  filter:blur(8px) saturate(.85) !important;
+  pointer-events:none !important;
+}
+.about-clouds::after{
+  background:linear-gradient(180deg,rgba(245,247,249,.96) 0%,rgba(244,246,248,.82) 40%,rgba(243,239,232,.98) 100%) !important;
+}
+.about-grid,
+.about-copy,
+.about-lead,
+.about-bottom,
+.about-section .section-label{
+  position:relative;
+  z-index:3 !important;
+}
+.about-section .section-label{
+  color:#a56e3c !important;
+  opacity:1 !important;
+}
+
+@media (max-width:1180px){
+  .about-section{
+    padding:7vh 0 108px !important;
+    background-position:center -80px !important;
+  }
+  .about-clouds{bottom:87% !important;opacity:.05 !important;}
+}
+
+@media (max-width:760px){
+  .about-section{
+    padding:6vh 0 96px !important;
+    background-position:center -30px !important;
+  }
+  .about-clouds{top:-10vh !important;bottom:89% !important;opacity:.04 !important;}
+}

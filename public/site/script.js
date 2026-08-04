@@ -292,7 +292,30 @@
   const viewer=$('#viewer360');
   const open360=()=>{viewer?.classList.add('is-open');viewer?.setAttribute('aria-hidden','false');document.body.classList.add('is-locked')};
   const close360=()=>{viewer?.classList.remove('is-open');viewer?.setAttribute('aria-hidden','true');document.body.classList.remove('is-locked')};
-  $$('#open360, [data-open360]').forEach(btn=>btn.addEventListener('click',open360));
+  $('#open360')?.addEventListener('click',open360);
+
+  // V48: Move the SAME 360° button directly below the fleet thumbnails on mobile.
+  // On desktop it returns to its original position below the aircraft specifications.
+  const fleet360Button=$('#open360');
+  const fleetMediaThumbs=$('#fleetMediaThumbs');
+  const fleetInformation=$('.fleet-information');
+  const mobileFleetQuery=window.matchMedia('(max-width: 760px)');
+  const placeFleet360Button=()=>{
+    if(!fleet360Button||!fleetMediaThumbs||!fleetInformation) return;
+    if(mobileFleetQuery.matches){
+      fleetMediaThumbs.insertAdjacentElement('afterend',fleet360Button);
+      fleet360Button.classList.add('is-mobile-position');
+    }else{
+      fleetInformation.appendChild(fleet360Button);
+      fleet360Button.classList.remove('is-mobile-position');
+    }
+  };
+  placeFleet360Button();
+  if(typeof mobileFleetQuery.addEventListener==='function'){
+    mobileFleetQuery.addEventListener('change',placeFleet360Button);
+  }else{
+    mobileFleetQuery.addListener(placeFleet360Button);
+  }
   $$('[data-close360]').forEach(btn=>btn.addEventListener('click',close360));
   const scene=$('#viewer360Scene');
   const pan=$('#viewer360Pan');

@@ -2180,3 +2180,118 @@ main{position:relative;z-index:1}
   .fly-word{font-size:clamp(44px,12vw,66px) !important;}
   .fleet-showcase{margin-top:-28svh !important;}
 }
+
+/* =========================
+   V53 — root mobile repair (continuous clouds + deterministic flagship timeline)
+   This block intentionally overrides the older stacked mobile patches.
+   ========================= */
+@media (max-width:760px){
+  /* The scroll container itself is sky-coloured. The premium colour belongs
+     only to the pinned hero viewport, so no dark strip can appear between
+     the two moving cloud layers. */
+  .window-journey{
+    height:150svh !important;
+    overflow:visible !important;
+    background:#cfe4f2 !important;
+  }
+  .window-pin{
+    height:100svh !important;
+    background:
+      radial-gradient(circle at 22% 42%,rgba(198,154,97,.48),transparent 34%),
+      radial-gradient(circle at 82% 50%,rgba(102,24,57,.55),transparent 38%),
+      linear-gradient(90deg,#100d12 0%,#3a291f 36%,#17131a 66%,#351522 100%) !important;
+  }
+  .hero-cloud-field{
+    inset:-10% !important;
+    z-index:2 !important;
+    background-color:#cfe4f2 !important;
+  }
+  .window-journey::after{
+    left:-14% !important;
+    right:-14% !important;
+    bottom:-1px !important;
+    height:66svh !important;
+    z-index:4 !important;
+    opacity:1 !important;
+    transform:scale(1.10) !important;
+    filter:none !important;
+    background:
+      linear-gradient(180deg,rgba(207,228,242,.02) 0%,rgba(207,228,242,.36) 32%,rgba(218,234,244,.82) 68%,#dfeaf2 100%),
+      url('assets/hero-clouds-user.webp') center 60%/cover no-repeat !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+  .about-section{
+    margin-top:-18svh !important;
+    padding:24svh 0 94px !important;
+    background:
+      linear-gradient(180deg,rgba(207,228,242,.22) 0%,rgba(220,235,244,.62) 24%,rgba(238,242,241,.94) 62%,#f3efe8 100%),
+      url('assets/hero-clouds-user.webp') center top/cover no-repeat !important;
+    background-color:#d7e8f3 !important;
+  }
+  .about-section::after{
+    background:linear-gradient(180deg,rgba(214,231,242,0) 0%,rgba(228,238,244,.18) 28%,rgba(243,239,232,.82) 76%,#f3efe8 100%) !important;
+  }
+  .about-clouds{
+    top:-4svh !important;
+    height:24svh !important;
+    opacity:.22 !important;
+  }
+
+  /* A longer active timeline, but with the next section deliberately pulled
+     into the final jet-exit phase. This removes the blank panel without
+     speeding up the aircraft. */
+  .fleet-journey{
+    height:240svh !important;
+    margin-top:-1px !important;
+    overflow:visible !important;
+    background:#f3efe8 !important;
+  }
+  .fleet-pin{
+    height:100svh !important;
+    overflow:hidden !important;
+  }
+  .fleet-kicker{
+    top:calc(var(--header-h) + 16px) !important;
+    left:5vw !important;
+  }
+  .time-statement{
+    top:49% !important;
+    width:min(92vw,560px) !important;
+    min-height:0 !important;
+    padding:0 4vw !important;
+    opacity:1;
+  }
+  .time-statement span{font-size:clamp(32px,9vw,46px) !important;}
+  .time-statement strong{font-size:clamp(58px,15vw,90px) !important;line-height:.84 !important;}
+  .time-statement small{margin-top:12px !important;font-size:9px !important;letter-spacing:.14em !important;}
+  .fly-word{
+    top:48% !important;
+    font-size:clamp(50px,14vw,78px) !important;
+    line-height:.82 !important;
+  }
+  .fly-word-left{left:6vw !important;width:auto !important;text-align:left !important;}
+  .fly-word-right{right:5vw !important;width:auto !important;text-align:right !important;}
+  .fleet-jet{
+    top:53% !important;
+    width:90vw !important;
+    max-width:580px !important;
+    height:auto !important;
+  }
+  .fleet-progress{bottom:7svh !important;}
+  .fleet-showcase{
+    position:relative !important;
+    z-index:9 !important;
+    margin-top:-64svh !important;
+    padding-top:28px !important;
+    background:linear-gradient(180deg,#f3efe8 0%,#f4f0e9 18%,#f3efe8 100%) !important;
+  }
+}
+
+@media (max-width:420px){
+  .window-journey{height:148svh !important;}
+  .about-section{margin-top:-17svh !important;padding-top:23svh !important;}
+  .fleet-journey{height:232svh !important;}
+  .fleet-showcase{margin-top:-62svh !important;}
+  .fly-word{font-size:clamp(46px,13vw,68px) !important;}
+}

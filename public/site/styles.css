@@ -2113,3 +2113,70 @@ main{position:relative;z-index:1}
   .fly-word{font-size:clamp(44px,12vw,66px) !important;}
   .fleet-showcase{margin-top:-30svh !important;}
 }
+
+/* =========================
+   V52 — restore hero palette + lock flagship timing
+   ========================= */
+@media (max-width:760px){
+  /* Restore the original premium burgundy/black hero palette. */
+  .window-journey{
+    height:148svh !important;
+    background:
+      radial-gradient(circle at 22% 42%,rgba(198,154,97,.48),transparent 34%),
+      radial-gradient(circle at 82% 50%,rgba(102,24,57,.55),transparent 38%),
+      linear-gradient(90deg,#100d12 0%,#3a291f 36%,#17131a 66%,#351522 100%) !important;
+  }
+
+  /* The statement is pinned in the viewport first, then Fly and the jet follow. */
+  .fleet-journey{
+    height:188svh !important;
+    margin-top:-1px !important;
+    overflow:hidden !important;
+    background:#f3efe8 !important;
+  }
+  .fleet-pin{height:100svh !important;}
+  .fleet-kicker{
+    top:calc(var(--header-h) + 16px) !important;
+    left:5vw !important;
+  }
+  .time-statement{
+    top:44% !important;
+    width:min(92vw,560px) !important;
+    min-height:0 !important;
+    padding:0 4vw !important;
+  }
+  .time-statement span{font-size:clamp(32px,9vw,46px) !important;}
+  .time-statement strong{font-size:clamp(58px,15vw,90px) !important;line-height:.84 !important;}
+  .time-statement small{margin-top:12px !important;font-size:9px !important;letter-spacing:.14em !important;}
+
+  .fly-word{
+    top:48% !important;
+    font-size:clamp(48px,13vw,74px) !important;
+  }
+  .fly-word-left{left:7vw !important;width:auto !important;}
+  .fly-word-right{right:6vw !important;width:auto !important;}
+
+  .fleet-jet{
+    top:53% !important;
+    width:88vw !important;
+    max-width:570px !important;
+    height:auto !important;
+  }
+  .fleet-progress{bottom:7svh !important;}
+
+  /* Bring the Fleet section up as the jet tail leaves, without a blank frame. */
+  .fleet-showcase{
+    position:relative !important;
+    z-index:9 !important;
+    margin-top:-30svh !important;
+    padding-top:18px !important;
+    background:linear-gradient(180deg,#f3efe8 0%,#f4f0e9 18%,#f3efe8 100%) !important;
+  }
+}
+
+@media (max-width:420px){
+  .fleet-journey{height:182svh !important;}
+  .time-statement{top:43.5% !important;}
+  .fly-word{font-size:clamp(44px,12vw,66px) !important;}
+  .fleet-showcase{margin-top:-28svh !important;}
+}

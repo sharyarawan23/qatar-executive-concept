@@ -85,43 +85,43 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // V51 — faster mobile time-slide entry, earlier Fly reveal and a tighter jet handoff.
+      // V52 — mobile flagship sequence: time statement stays pinned first,
+      // Fly Premium remains fixed while the jet enters, then both rise together.
       const isMobile=matchMedia('(max-width:760px)').matches;
 
-      const timeIn=easeOut(seg(p,0,isMobile?.04:.06));
-      const timeOut=1-ease(seg(p,isMobile?.26:.34,isMobile?.40:.48));
-      const timeLift=ease(seg(p,isMobile?.28:.38,isMobile?.42:.52));
+      const timeIn=easeOut(seg(p,0,isMobile?.055:.07));
+      const timeOut=1-ease(seg(p,isMobile?.39:.36,isMobile?.50:.48));
+      const timeLift=ease(seg(p,isMobile?.42:.40,isMobile?.52:.52));
       if(timeStatement){
-        const timeOffset=(1-timeIn)*(isMobile?1.8:4.6)-timeLift*(isMobile?9.5:10.5);
-        const timeScale=.998+timeIn*.004-timeLift*.012;
+        const timeOffset=(1-timeIn)*(isMobile?2.2:4.6)-timeLift*(isMobile?8:10.5);
+        const timeScale=.998+timeIn*.004-timeLift*.01;
         timeStatement.style.opacity=String(timeIn*timeOut);
         timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${timeScale})`;
       }
 
-      const wordsIn=easeOut(seg(p,isMobile?.34:.44,isMobile?.48:.58));
-      const wordsLift=ease(seg(p,isMobile?.58:.74,isMobile?.78:1));
-      const wordsFade=1-seg(p,isMobile?.74:.985,1);
+      const wordsIn=easeOut(seg(p,isMobile?.46:.44,isMobile?.57:.58));
+      const sharedRise=ease(seg(p,isMobile?.73:.74,isMobile?.96:1));
+      const wordsFade=1-seg(p,isMobile?.94:.985,1);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
-        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-6}px,calc(${(1-wordsIn)*8}px + 1vh - ${wordsLift*(isMobile?40:48)}vh),0)`;
+        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-6}px,calc(${(1-wordsIn)*8}px + 1vh - ${sharedRise*(isMobile?42:48)}vh),0)`;
       }
       if(flyRight){
         flyRight.style.opacity=String(wordsIn*wordsFade);
-        flyRight.style.transform=`translate3d(${(1-wordsIn)*6}px,calc(${(1-wordsIn)*8}px + 1vh - ${wordsLift*(isMobile?40:48)}vh),0)`;
+        flyRight.style.transform=`translate3d(${(1-wordsIn)*6}px,calc(${(1-wordsIn)*8}px + 1vh - ${sharedRise*(isMobile?42:48)}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,isMobile?.48:.52,isMobile?.68:.74));
-      const jetRise=ease(seg(p,isMobile?.68:.74,1));
-      const jetFade=1-seg(p,isMobile?.96:.997,1);
-      const startY=isMobile?108:118;
+      const jetEnter=ease(seg(p,isMobile?.57:.52,isMobile?.73:.74));
+      const jetFade=1-seg(p,isMobile?.985:.997,1);
+      const startY=isMobile?106:118;
       const exitY=isMobile?132:145;
-      const jetY=(1-jetEnter)*startY-jetRise*exitY;
+      const jetY=(1-jetEnter)*startY-sharedRise*exitY;
       const baseScale=isMobile?.54:.47;
       const enterScale=isMobile?.76:.84;
       const riseScale=isMobile?.06:.08;
-      const jetScale=baseScale+jetEnter*enterScale-jetRise*riseScale;
+      const jetScale=baseScale+jetEnter*enterScale-sharedRise*riseScale;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,isMobile?.46:.46,isMobile?.56:.53)*jetFade);
+        revealJet.style.opacity=String(seg(p,isMobile?.54:.46,isMobile?.62:.53)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;

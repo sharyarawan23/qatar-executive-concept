@@ -85,38 +85,38 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // Three-step cinematic sequence with tighter timing:
-      // 1) statement appears earlier from below,
-      // 2) Fly / Premium arrives sooner,
-      // 3) aircraft reveal begins earlier and ends with less dead scroll.
-      const timeIn=easeOut(seg(p,.0,.085));
-      const timeOut=1-ease(seg(p,.24,.34));
-      const timeLift=ease(seg(p,.24,.36));
+      // Three-step cinematic sequence — smoother and slower:
+      // 1) "Your time" appears gently from below,
+      // 2) Fly / Premium settles in with a softer hold,
+      // 3) aircraft reveal rises more slowly for a cinematic feel.
+      const timeIn=easeOut(seg(p,.00,.11));
+      const timeOut=1-ease(seg(p,.27,.39));
+      const timeLift=ease(seg(p,.28,.40));
       if(timeStatement){
-        const timeOffset=(1-timeIn)*11 - timeLift*9;
+        const timeOffset=(1-timeIn)*12 - timeLift*8;
         timeStatement.style.opacity=String(timeIn*timeOut);
-        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${0.988 + timeIn*.012 - timeLift*.008})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${0.987 + timeIn*.013 - timeLift*.006})`;
       }
 
-      const wordsIn=easeOut(seg(p,.27,.39));
-      const wordsLift=ease(seg(p,.62,.88));
-      const wordsFade=1-seg(p,.90,.975);
+      const wordsIn=easeOut(seg(p,.24,.40));
+      const wordsLift=ease(seg(p,.68,.92));
+      const wordsFade=1-seg(p,.94,.992);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
-        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-14}px,calc(${(1-wordsIn)*18}px + 7vh - ${wordsLift*42}vh),0)`;
+        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-12}px,calc(${(1-wordsIn)*20}px + 7vh - ${wordsLift*38}vh),0)`;
       }
       if(flyRight){
         flyRight.style.opacity=String(wordsIn*wordsFade);
-        flyRight.style.transform=`translate3d(${(1-wordsIn)*14}px,calc(${(1-wordsIn)*18}px + 7vh - ${wordsLift*42}vh),0)`;
+        flyRight.style.transform=`translate3d(${(1-wordsIn)*12}px,calc(${(1-wordsIn)*20}px + 7vh - ${wordsLift*38}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.35,.50));
-      const jetRise=ease(seg(p,.50,.86));
-      const jetFade=1-seg(p,.90,.985);
-      const jetY=(1-jetEnter)*130 - jetRise*282;
-      const jetScale=.46 + jetEnter*.98 - jetRise*.18;
+      const jetEnter=ease(seg(p,.40,.58));
+      const jetRise=ease(seg(p,.58,.94));
+      const jetFade=1-seg(p,.965,.998);
+      const jetY=(1-jetEnter)*145 - jetRise*255;
+      const jetScale=.42 + jetEnter*.95 - jetRise*.14;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,.35,.43)*jetFade);
+        revealJet.style.opacity=String(seg(p,.40,.50)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;

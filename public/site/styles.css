@@ -2295,3 +2295,124 @@ main{position:relative;z-index:1}
   .fleet-showcase{margin-top:-62svh !important;}
   .fly-word{font-size:clamp(46px,13vw,68px) !important;}
 }
+
+/* =========================
+   V54 — mobile hero/sky hand-off repair
+   Keep the sky transition below the pinned hero instead of painting over it.
+   ========================= */
+@media (max-width:760px){
+  .window-journey{
+    isolation:isolate !important;
+    overflow:hidden !important;
+  }
+
+  /* The complete hero (window + copy) stays above the sky hand-off. */
+  .window-pin{
+    position:sticky !important;
+    top:0 !important;
+    z-index:10 !important;
+    isolation:isolate !important;
+  }
+
+  /* Sky now occupies only the trailing part of the journey and cannot cover
+     “We are distinction”, the window, or the scroll cue. */
+  .window-journey::after{
+    top:auto !important;
+    bottom:0 !important;
+    height:50svh !important;
+    z-index:1 !important;
+    left:0 !important;
+    right:0 !important;
+    transform:none !important;
+    filter:none !important;
+    opacity:1 !important;
+    background:
+      linear-gradient(180deg,#cfe4f2 0%,rgba(215,233,244,.96) 58%,#dfeaf2 100%),
+      url('assets/hero-clouds-user.webp') center 58%/cover no-repeat !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+
+  .hero-copy-left,
+  .hero-copy-right,
+  .scroll-cue-discover,
+  .hero-window{
+    position:absolute;
+    z-index:12 !important;
+  }
+}
+
+@media (max-width:420px){
+  .window-journey::after{height:48svh !important;}
+}
+
+/* =========================
+   V55 — mobile hero copy balance
+   Keep both copy blocks centred above and below the aircraft window.
+   ========================= */
+@media (max-width:760px){
+  .hero-window{
+    top:56.5% !important;
+    width:70vw !important;
+    max-width:390px !important;
+  }
+
+  .hero-copy-left,
+  .hero-copy-right{
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    max-width:none !important;
+    padding-left:6vw !important;
+    padding-right:6vw !important;
+    box-sizing:border-box !important;
+    text-align:center !important;
+  }
+
+  .hero-copy-left{
+    top:13.5svh !important;
+    bottom:auto !important;
+  }
+
+  .hero-copy-right{
+    top:auto !important;
+    bottom:12svh !important;
+  }
+
+  .hero-copy h1,
+  .hero-copy h2{
+    margin-top:10px !important;
+    font-size:clamp(39px,11vw,55px) !important;
+    line-height:.88 !important;
+    letter-spacing:-.045em !important;
+  }
+
+  .hero-copy p{
+    max-width:88vw !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    font-size:9px !important;
+    line-height:1.52 !important;
+    letter-spacing:.12em !important;
+  }
+
+  .hero-copy-right p{
+    max-width:84vw !important;
+    margin-top:10px !important;
+  }
+
+  .scroll-cue-discover{
+    bottom:2svh !important;
+  }
+}
+
+@media (max-width:420px){
+  .hero-window{
+    top:56.5% !important;
+    width:72vw !important;
+  }
+  .hero-copy-left{top:13svh !important;}
+  .hero-copy-right{bottom:11.5svh !important;}
+  .hero-copy h1,
+  .hero-copy h2{font-size:clamp(37px,10.8vw,48px) !important;}
+}

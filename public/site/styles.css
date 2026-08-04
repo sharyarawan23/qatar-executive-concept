@@ -1578,3 +1578,19 @@ main{position:relative;z-index:1}
 @media (max-width:760px){
   .fleet-journey{height:138vh !important;}
 }
+
+
+/* =========================
+   V43 — remove dead space after Fly, bring Fleet section up sooner
+   ========================= */
+.fleet-journey{height:132vh !important;}
+@media (max-width:1180px){
+  .fleet-journey{height:126vh !important;}
+}
+@media (max-width:760px){
+  .fleet-journey{height:118vh !important;}
+}
+.fleet-showcase{margin-top:-1px !important;padding-top:72px !important;}
+@media (max-width:760px){
+  .fleet-showcase{padding-top:60px !important;}
+}

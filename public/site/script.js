@@ -60,18 +60,19 @@
         cloudVideo.style.transform=`translate3d(0,${-cloudZoom*4}%,0) scale(${1+cloudZoom*.42})`;
       }
 
-      /* Cross-fade to the full-screen cloud field only once the window opening
-         has already covered the viewport, preventing any blue or black gap. */
-      const fieldIn=easeOut(seg(p,.66,.88));
+      /* Bring in a clean blue/white full-screen cloud field only after the
+         window view has already covered the viewport, so no purple or dark
+         background bleeds through the clouds. */
+      const fieldIn=easeOut(seg(p,.64,.84));
       if(heroCloudField){
         heroCloudField.style.opacity=String(fieldIn);
-        heroCloudField.style.transform=`translate3d(0,0,0) scale(${1.055-fieldIn*.035})`;
+        heroCloudField.style.transform=`translate3d(0,${-fieldIn*1.2}%,0) scale(${1.05-fieldIn*.03})`;
       }
 
       const isHeroMobile=matchMedia('(max-width:760px)').matches;
-      const windowZoom=ease(seg(p,.14,.84));
-      const maxWindowScale=isHeroMobile?6.35:4.85;
-      const windowFade=1-ease(seg(p,.82,.96));
+      const windowZoom=ease(seg(p,.14,.86));
+      const maxWindowScale=isHeroMobile?6.55:4.95;
+      const windowFade=1-ease(seg(p,.86,.975));
       if(windowObject){
         windowObject.style.transform=`translate(-50%,-50%) scale(${1+windowZoom*(maxWindowScale-1)})`;
         windowObject.style.opacity=String(windowFade);
@@ -96,36 +97,35 @@
       const isMobile=matchMedia('(max-width:760px)').matches;
 
       if(isMobile){
-        /* V53 mobile sequence — one continuous pinned timeline:
-           1) time statement is already visible when the section arrives,
-           2) Fly Premium enters and holds,
-           3) the jet rises slowly through it,
-           4) text + jet leave together while Fleet is already entering. */
-        const timeOut=1-ease(seg(p,.27,.39));
-        const timeLift=ease(seg(p,.27,.41));
+        /* V58 mobile sequence — the section stays pinned until the jet has
+           fully revealed and travelled upward. The next section must not enter
+           while the aircraft is only half visible. */
+        const timeOut=1-ease(seg(p,.22,.34));
+        const timeLift=ease(seg(p,.22,.36));
         if(timeStatement){
           timeStatement.style.opacity=String(timeOut);
-          timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*10}vh)) scale(${1-timeLift*.012})`;
+          timeStatement.style.transform=`translate(-50%,calc(-50% - ${timeLift*9}vh)) scale(${1-timeLift*.012})`;
         }
 
-        const wordsIn=easeOut(seg(p,.31,.43));
-        const sharedRise=ease(seg(p,.70,.97));
-        const wordsFade=1-seg(p,.965,1);
+        const wordsIn=easeOut(seg(p,.32,.44));
+        const sharedRise=ease(seg(p,.80,.97));
+        const wordsFade=1-seg(p,.975,1);
         if(flyLeft){
           flyLeft.style.opacity=String(wordsIn*wordsFade);
-          flyLeft.style.transform=`translate3d(${(1-wordsIn)*-8}px,calc(${(1-wordsIn)*8}px - ${sharedRise*48}vh),0)`;
+          flyLeft.style.transform=`translate3d(${(1-wordsIn)*-8}px,calc(${(1-wordsIn)*8}px - ${sharedRise*54}vh),0)`;
         }
         if(flyRight){
           flyRight.style.opacity=String(wordsIn*wordsFade);
-          flyRight.style.transform=`translate3d(${(1-wordsIn)*8}px,calc(${(1-wordsIn)*8}px - ${sharedRise*48}vh),0)`;
+          flyRight.style.transform=`translate3d(${(1-wordsIn)*8}px,calc(${(1-wordsIn)*8}px - ${sharedRise*54}vh),0)`;
         }
 
-        const jetEnter=ease(seg(p,.40,.70));
-        const jetFade=1-seg(p,.985,1);
-        const jetY=(1-jetEnter)*108-sharedRise*132;
-        const jetScale=.54+jetEnter*.78-sharedRise*.055;
+        const jetEnter=ease(seg(p,.42,.66));
+        const jetHold=ease(seg(p,.66,.76));
+        const jetFade=1-seg(p,.992,1);
+        const jetY=(1-jetEnter)*112 - jetHold*10 - sharedRise*168;
+        const jetScale=.52 + jetEnter*.84 - sharedRise*.06;
         if(revealJet){
-          revealJet.style.opacity=String(seg(p,.38,.46)*jetFade);
+          revealJet.style.opacity=String(seg(p,.39,.46)*jetFade);
           revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
         }
       }else{

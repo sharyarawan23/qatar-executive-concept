@@ -2632,3 +2632,100 @@ main{position:relative;z-index:1}
   .hero-cloud-field{opacity:1 !important;transform:none !important;}
   .hero-window{opacity:0 !important;}
 }
+
+
+/* =========================
+   V58 — final mobile pacing and cloud cleanup
+   Ensures pure blue/white cloud tone, removes dark seam under the window,
+   and keeps the fleet section pinned until the jet fully reveals and clears.
+   ========================= */
+.hero-cloud-field,
+.hero-clouds,
+.hero-window-viewport{
+  background-color:#d7ebf7 !important;
+}
+.hero-cloud-field i,
+.hero-clouds i,
+.about-clouds i{
+  filter:saturate(1.02) brightness(1.02) contrast(1.01) !important;
+}
+.hero-cloud-field::before,
+.hero-clouds::before,
+.hero-window-viewport::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  z-index:3;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(215,235,247,0) 0%,rgba(215,235,247,.08) 32%,rgba(215,235,247,.22) 64%,rgba(215,235,247,.96) 100%);
+}
+.hero-cloud-field::after{
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04) 26%,rgba(215,235,247,.08) 72%,rgba(215,235,247,.22)) !important;
+}
+.hero-clouds::after{
+  background:radial-gradient(circle at 72% 12%,rgba(255,255,255,.36),transparent 32%),linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0) 55%) !important;
+}
+.hero-window-viewport::after{
+  content:"";
+  position:absolute;
+  left:-4%;
+  right:-4%;
+  bottom:-1%;
+  height:18%;
+  z-index:5;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(215,235,247,0) 0%,rgba(215,235,247,.42) 54%,#d7ebf7 100%);
+}
+.about-section{
+  background:
+    linear-gradient(180deg,#d7ebf7 0%,#deedf6 18%,#e9f3f8 42%,#f1f0ea 80%,#f3efe8 100%),
+    url('assets/hero-clouds-user.webp') center top/cover no-repeat !important;
+  background-color:#d7ebf7 !important;
+}
+@media (max-width:760px){
+  .window-journey{
+    height:236svh !important;
+  }
+  .hero-cloud-field,
+  .hero-clouds,
+  .hero-window-viewport{
+    background-color:#d8ecf8 !important;
+  }
+  .hero-cloud-field::before,
+  .hero-clouds::before,
+  .hero-window-viewport::before{
+    background:linear-gradient(180deg,rgba(216,236,248,0) 0%,rgba(216,236,248,.10) 32%,rgba(216,236,248,.30) 68%,#d8ecf8 100%) !important;
+  }
+  .hero-window-viewport::after{
+    bottom:-2% !important;
+    height:22% !important;
+    background:linear-gradient(180deg,rgba(216,236,248,0) 0%,rgba(216,236,248,.5) 56%,#d8ecf8 100%) !important;
+  }
+  .about-section{
+    padding:30svh 0 94px !important;
+    background-position:center top !important;
+  }
+
+  .fleet-journey{
+    height:232svh !important;
+    margin-top:0 !important;
+    background:#f3efe8 !important;
+  }
+  .fleet-pin{
+    height:100svh !important;
+    overflow:hidden !important;
+    background:linear-gradient(180deg,#f3efe8 0%,#f4f0e9 24%,#efe9df 100%) !important;
+  }
+  .fleet-showcase{
+    margin-top:0 !important;
+    padding-top:88px !important;
+  }
+  .fleet-jet{
+    top:53% !important;
+    height:108vh !important;
+    max-height:none !important;
+  }
+}
+@media (max-width:430px){
+  .fleet-journey{height:244svh !important;}
+}

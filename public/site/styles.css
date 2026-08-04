@@ -1468,3 +1468,101 @@ main{position:relative;z-index:1}
   }
   .about-clouds{top:-10vh !important;bottom:89% !important;opacity:.04 !important;}
 }
+
+
+/* =========================
+   V38 — about clouds fully behind content
+   ========================= */
+.about-section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  margin-top:-1vh !important;
+  padding:10vh 0 118px !important;
+  background:linear-gradient(180deg,#f3f7fa 0%,#eef4f7 22%,#eef1f2 48%,#f3efe8 100%) !important;
+}
+.about-section::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:38vh;
+  background:linear-gradient(180deg,rgba(197,223,241,.34) 0%,rgba(216,232,244,.16) 46%,rgba(243,239,232,0) 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.about-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2 !important;
+  pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(247,249,250,.18) 0%,
+    rgba(246,248,249,.24) 20%,
+    rgba(243,246,247,.34) 34%,
+    rgba(242,243,241,.68) 58%,
+    rgba(243,239,232,.92) 82%,
+    #f3efe8 100%) !important;
+}
+.about-clouds{
+  position:absolute;
+  left:0; right:0;
+  top:-8vh !important;
+  height:30vh !important;
+  bottom:auto !important;
+  z-index:0 !important;
+  opacity:.22 !important;
+  overflow:hidden;
+  filter:saturate(.95) blur(1px) !important;
+  pointer-events:none !important;
+}
+.about-clouds i{
+  inset:0 !important;
+  background-image:url('assets/hero-clouds-user.webp') !important;
+  background-size:cover !important;
+  background-position:center 34% !important;
+  will-change:transform;
+}
+.about-clouds i:nth-child(1){opacity:.28 !important;}
+.about-clouds i:nth-child(2){opacity:.16 !important;}
+.about-clouds i:nth-child(3){opacity:.10 !important;}
+.about-clouds::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,
+    rgba(246,249,251,.18) 0%,
+    rgba(245,248,250,.36) 40%,
+    rgba(243,239,232,.96) 100%) !important;
+}
+.about-grid,
+.about-copy,
+.about-lead,
+.about-bottom,
+.about-section .section-label{
+  position:relative;
+  z-index:5 !important;
+}
+.about-section .section-label{
+  color:#a56e3c !important;
+  opacity:1 !important;
+}
+.about-copy,
+.about-lead,
+.about-bottom,
+.about-bottom p,
+.about-bottom span{
+  color:inherit;
+}
+
+@media (max-width:1180px){
+  .about-section{padding:9vh 0 108px !important;}
+  .about-section::before{height:32vh;}
+  .about-clouds{top:-7vh !important;height:26vh !important;opacity:.18 !important;}
+}
+
+@media (max-width:760px){
+  .about-section{padding:8vh 0 94px !important;}
+  .about-section::before{height:24vh;}
+  .about-clouds{top:-5vh !important;height:20vh !important;opacity:.14 !important;}
+}

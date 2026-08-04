@@ -1566,3 +1566,15 @@ main{position:relative;z-index:1}
   .about-section::before{height:24vh;}
   .about-clouds{top:-5vh !important;height:20vh !important;opacity:.14 !important;}
 }
+
+
+/* =========================
+   V39 — reduce dead scroll around flagship transition
+   ========================= */
+.fleet-journey{height:186vh !important;}
+@media (max-width:1180px){
+  .fleet-journey{height:176vh !important;}
+}
+@media (max-width:760px){
+  .fleet-journey{height:164vh !important;}
+}

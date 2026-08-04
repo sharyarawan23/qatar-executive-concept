@@ -85,42 +85,43 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // V46 — clean three-beat sequence: time statement, Fly Premium, then the aircraft.
-      // The aircraft tail exits only at the very end, so the following Fleet section can rise with it.
+      // V49 — mobile timing refined: the time statement appears immediately,
+      // stays cinematic and steady, then yields to Fly Premium and the jet.
       const isMobile=matchMedia('(max-width:760px)').matches;
-      const timeIn=easeOut(seg(p,.015,.115));
-      const timeOut=1-ease(seg(p,.34,.46));
-      const timeLift=ease(seg(p,.36,.48));
+      const timeIn=easeOut(seg(p,0,.06));
+      const timeOut=1-ease(seg(p,isMobile?.36:.38,isMobile?.5:.52));
+      const timeLift=ease(seg(p,isMobile?.42:.44,isMobile?.54:.58));
       if(timeStatement){
-        const timeOffset=(1-timeIn)*9-timeLift*9;
+        const timeOffset=(1-timeIn)*(isMobile?3.6:5.5)-timeLift*(isMobile?8:10);
+        const timeScale=.996+timeIn*.006-timeLift*.01;
         timeStatement.style.opacity=String(timeIn*timeOut);
-        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${.992+timeIn*.008-timeLift*.004})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${timeScale})`;
       }
 
-      const wordsIn=easeOut(seg(p,.43,.55));
-      const wordsLift=ease(seg(p,.69,1));
+      const wordsIn=easeOut(seg(p,isMobile?.44:.46,isMobile?.58:.60));
+      const wordsLift=ease(seg(p,isMobile?.74:.76,1));
       const wordsFade=1-seg(p,.985,1);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
-        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-10}px,calc(${(1-wordsIn)*15}px + 5vh - ${wordsLift*48}vh),0)`;
+        flyLeft.style.transform=`translate3d(${(1-wordsIn)*-8}px,calc(${(1-wordsIn)*10}px + 2vh - ${wordsLift*(isMobile?42:48)}vh),0)`;
       }
       if(flyRight){
         flyRight.style.opacity=String(wordsIn*wordsFade);
-        flyRight.style.transform=`translate3d(${(1-wordsIn)*10}px,calc(${(1-wordsIn)*15}px + 5vh - ${wordsLift*48}vh),0)`;
+        flyRight.style.transform=`translate3d(${(1-wordsIn)*8}px,calc(${(1-wordsIn)*10}px + 2vh - ${wordsLift*(isMobile?42:48)}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.50,.72));
-      const jetRise=ease(seg(p,.72,1));
+      const jetEnter=ease(seg(p,isMobile?.54:.52,isMobile?.78:.74));
+      const jetRise=ease(seg(p,isMobile?.78:.74,1));
       const jetFade=1-seg(p,.997,1);
-      const startY=isMobile?112:118;
-      const exitY=isMobile?138:145;
+      const startY=isMobile?102:118;
+      const exitY=isMobile?126:145;
       const jetY=(1-jetEnter)*startY-jetRise*exitY;
-      const baseScale=isMobile?.52:.47;
-      const enterScale=isMobile?.76:.84;
-      const riseScale=isMobile?.05:.08;
+      const baseScale=isMobile?.56:.47;
+      const enterScale=isMobile?.72:.84;
+      const riseScale=isMobile?.04:.08;
       const jetScale=baseScale+jetEnter*enterScale-jetRise*riseScale;
       if(revealJet){
-        revealJet.style.opacity=String(seg(p,.46,.53)*jetFade);
+        revealJet.style.opacity=String(seg(p,isMobile?.50:.46,isMobile?.58:.53)*jetFade);
         revealJet.style.transform=`translate(-50%,${jetY}vh) scale(${jetScale})`;
       }
       if(fleetProgress) fleetProgress.style.width=`${p*100}%`;

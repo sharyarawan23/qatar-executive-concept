@@ -3054,3 +3054,25 @@ main{position:relative;z-index:1}
     max-width:124px !important;
   }
 }
+
+
+/* =========================
+   V62 — mobile thumbnail image fit fix
+   Exterior and Interior thumbnails should fill the frame cleanly.
+   ========================= */
+@media (max-width:760px){
+  .fleet-media-thumbs button[data-kind="image"]{
+    overflow:hidden !important;
+    background:#e8e1d8 !important;
+  }
+  .fleet-media-thumbs button[data-kind="image"] img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+    padding:0 !important;
+    background:none !important;
+    filter:saturate(.9) brightness(.86) !important;
+    transform:scale(1.02) !important;
+  }
+}

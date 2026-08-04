@@ -85,19 +85,20 @@
       const total=fleetJourney.offsetHeight-innerHeight;
       const p=clamp(-r.top/Math.max(1,total));
 
-      // Three-step cinematic sequence — time slide earlier, fly separated, tighter overall pacing.
-      const timeIn=easeOut(seg(p,.00,.05));
-      const timeOut=1-ease(seg(p,.12,.19));
-      const timeLift=ease(seg(p,.13,.20));
+      // V45 — earlier, longer time statement and a much slower cinematic aircraft pass.
+      const timeP=clamp((innerHeight*.18-r.top)/Math.max(1,total+innerHeight*.18));
+      const timeIn=easeOut(seg(timeP,.00,.07));
+      const timeOut=1-ease(seg(timeP,.40,.52));
+      const timeLift=ease(seg(timeP,.42,.54));
       if(timeStatement){
-        const timeOffset=(1-timeIn)*9 - timeLift*8;
+        const timeOffset=(1-timeIn)*10 - timeLift*10;
         timeStatement.style.opacity=String(timeIn*timeOut);
-        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${0.989 + timeIn*.011 - timeLift*.006})`;
+        timeStatement.style.transform=`translate(-50%,calc(-50% + ${timeOffset}vh)) scale(${0.988 + timeIn*.012 - timeLift*.006})`;
       }
 
-      const wordsIn=easeOut(seg(p,.21,.32));
-      const wordsLift=ease(seg(p,.52,.82));
-      const wordsFade=1-seg(p,.87,.96);
+      const wordsIn=easeOut(seg(p,.48,.60));
+      const wordsLift=ease(seg(p,.72,.96));
+      const wordsFade=1-seg(p,.95,.998);
       if(flyLeft){
         flyLeft.style.opacity=String(wordsIn*wordsFade);
         flyLeft.style.transform=`translate3d(${(1-wordsIn)*-8}px,calc(${(1-wordsIn)*14}px + 7vh - ${wordsLift*34}vh),0)`;
@@ -107,9 +108,9 @@
         flyRight.style.transform=`translate3d(${(1-wordsIn)*8}px,calc(${(1-wordsIn)*14}px + 7vh - ${wordsLift*34}vh),0)`;
       }
 
-      const jetEnter=ease(seg(p,.31,.45));
-      const jetRise=ease(seg(p,.45,.84));
-      const jetFade=1-seg(p,.92,.985);
+      const jetEnter=ease(seg(p,.57,.75));
+      const jetRise=ease(seg(p,.75,.995));
+      const jetFade=1-seg(p,.988,1);
       const jetY=(1-jetEnter)*126 - jetRise*246;
       const jetScale=.46 + jetEnter*.90 - jetRise*.13;
       if(revealJet){

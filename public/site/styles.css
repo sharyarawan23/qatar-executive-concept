@@ -1594,3 +1594,33 @@ main{position:relative;z-index:1}
 @media (max-width:760px){
   .fleet-showcase{padding-top:60px !important;}
 }
+
+
+/* =========================
+   V44 — tighter handoff after Fly + a little more time for the time slide
+   ========================= */
+.fleet-journey{height:124vh !important;}
+.fleet-showcase{margin-top:-1px !important;padding-top:52px !important;}
+@media (max-width:1180px){
+  .fleet-journey{height:118vh !important;}
+  .fleet-showcase{padding-top:48px !important;}
+}
+@media (max-width:760px){
+  .fleet-journey{height:110vh !important;}
+  .fleet-showcase{padding-top:42px !important;}
+}
+
+
+/* =========================
+   V45 — longer time hold + slower cinematic jet, with a tight next-section handoff
+   ========================= */
+.fleet-journey{height:205vh !important;}
+.fleet-showcase{margin-top:-1px !important;padding-top:36px !important;}
+@media (max-width:1180px){
+  .fleet-journey{height:190vh !important;}
+  .fleet-showcase{padding-top:32px !important;}
+}
+@media (max-width:760px){
+  .fleet-journey{height:170vh !important;}
+  .fleet-showcase{padding-top:28px !important;}
+}
